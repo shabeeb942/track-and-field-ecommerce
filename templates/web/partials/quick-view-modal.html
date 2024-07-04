@@ -1,0 +1,65 @@
+
+    <!-- Quick View Modal Box Start -->
+    <div class="modal fade theme-modal view-modal" id="view-{{item.id}}" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header p-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-sm-4 g-2">
+                        <div class="col-lg-6">
+                            <div class="slider-image">
+                                <img src="{{item.image.url}}" class="img-fluid blur-up lazyload"
+                                    alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="right-sidebar-modal">
+                                <h4 class="title-name">{{item.name}}</h4>
+                                <h4 class="price">₹ {{item.get_product_variant.price}}</h4>
+
+
+                                <div class="product-detail">
+                                    <h4>Product Details :</h4>
+                                    <p>{{item.description|safe}}</p>
+                                </div>
+
+                                <ul class="brand-list">
+                                    <li>
+                                        <div class="brand-box">
+                                            <h5>Brand Name:</h5>
+                                            <h6>Black Forest</h6>
+                                        </div>
+                                    </li>
+
+
+                                    <li>
+                                        <div class="brand-box">
+                                            <h5>Category:</h5>
+                                            <h6>{{item.subcategory.name}}</h6>
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+
+                                <div class="modal-button">
+                                    <button onclick="location.href = 'javascript:void(0)';"
+                                        class="btn btn-md add-cart-button icon"  data-bs-toggle="modal" data-bs-target="#ProductModal-{{item.slug}}">Add
+                                        To Cart</button>
+                                    <button onclick="location.href = '{{item.get_absolute_url}}';"
+                                        class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
+                                        View More Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick View Modal Box End -->

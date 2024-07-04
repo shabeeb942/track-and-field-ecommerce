@@ -1,0 +1,126 @@
+{% load static extras i18n %}
+<!--app-sidebar-->
+<div class="sticky">
+    <aside class="app-sidebar">
+        <div class="app-sidebar__logo">
+            <a class="header-brand" href="/">
+                <img src="{{app_settings.logo}}" class="header-brand-img desktop-lgo" alt="">
+                <img src="{{app_settings.logo}}" class="header-brand-img dark-logo" alt="">
+                <img src="{{app_settings.favicon}}" class="header-brand-img mobile-logo" alt="">
+                <img src="{{app_settings.favicon}}" class="header-brand-img darkmobile-logo" alt="">
+            </a>
+        </div>
+        <div class="app-sidebar3">
+            <div class="main-menu">
+                <div class="app-sidebar__user">
+                    <div class="dropdown user-pro-body text-center">
+                        <div class="user-pic">
+                            {% if current_employee.photo %}
+                            <img src="{{current_employee.photo.crop.74x74}}" alt=" "
+                                class="avatar-xxl rounded-circle mb-1" />
+                            {% else %}
+                            <img src="{{default_user_avatar}}" alt=" " class="avatar-xxl rounded-circle mb-1" />
+                            {% endif %}
+                        </div>
+                        <div class="user-info">
+                            <h5 class="mb-2">{{request.user}}</h5>
+                            <span class="app-sidebar__user-name text-sm">{{request.user.designation}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-left disabled" id="slide-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
+                    </svg>
+                </div>
+
+                <ul class="side-menu py-0 module_info">
+                    <li class="side-item side-item-category m-0 text-center">{{app_settings.site_name}}</li>
+                </ul>
+
+                <ul class="side-menu">
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'core:home' %}">
+                            <i class="feather feather-airplay sidemenu_icon"></i>
+                            <span class="side-menu__label">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'marketing:enquiry_list' %}">
+                            <i class="feather feather-message-square sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Enquiries' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'employees:employee_list' %}">
+                            <i class="feather feather-users sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Employees' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'employees:department_list' %}">
+                            <i class="feather feather-grid sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Departments' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'employees:designation_list' %}">
+                            <i class="feather feather-award sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Designations' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'employees:grade_list' %}">
+                            <i class="feather feather-briefcase sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Grades' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'projects:project_list' %}">
+                            <i class="feather feather-server sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Projects' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'tasks:task_list' %}">
+                            <i class="feather feather-list sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Tasks' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'tasks:reminder_list' %}">
+                            <i class="feather feather-alert-triangle sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Reminders' %}</span>
+                        </a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="{% url 'lms:course_list' %}">
+                            <i class="feather feather-book sidemenu_icon"></i>
+                            <span class="side-menu__label">{% translate 'Courses' %}<sup>New</sup></span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="slide-right" id="slide-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
+                    </svg>
+                </div>
+
+
+            </div>
+        </div>
+    </aside>
+</div>

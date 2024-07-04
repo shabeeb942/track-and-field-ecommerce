@@ -1,0 +1,259 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% comment %} <!-- Home Section Start -->
+    <section class="home-section-2 home-section-bg pt-0 pb-0 overflow-hidden">
+        <div class="container-fluid p-0 ratio_27">
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-animate home-banner-slider skeleton-banner-xl">
+                        {% for banner in banners %}
+                        <a href="{% url 'web:shop' %}?sub_category={{banner.sub_category.slug}}">
+                        <div>
+                            <div class="h-100 bg-size">
+                              <img src="{{banner.image.url}}" class="bg-img" alt="">
+                            </div>
+                        </div>
+                      </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Section End --> {% endcomment %}
+
+    <!-- Home Section Start -->
+    <section class="home-section pt-2">
+        <div class="container-fluid-lg">
+            <div class="row g-4">
+                <div class="col-xl-8 ratio_65">
+                    <div class="home-contain h-100">
+                        <div class="h-100">
+                            <img src="https://thefreshtoast.com/wp-content/uploads/2020/08/which-sports-fans-smoke-the-most-weed-hint-its-not-baseball-or-basketball.jpg" class="bg-img blur-up lazyload" alt="">
+                        </div>
+                        <div class="home-detail p-center-left w-75">
+                            <div>
+                                <h6>Exclusive offer <span>30% Off</span></h6>
+                                <h1 class="text-uppercase">Stay home & delivered your <span class="daily">Daily
+                                        Needs</span></h1>
+                                <p class="w-75 d-none d-sm-block">Vegetables contain many vitamins and minerals that are
+                                    good for your health.</p>
+                                <button onclick="location.href = 'javascript:void(0)';"
+                                    class="btn btn-animation mt-xxl-4 mt-2 home-button mend-auto">Shop Now <i
+                                        class="fa-solid fa-right-long icon"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 ratio_65">
+                    <div class="row g-4">
+                        <div class="col-xl-12 col-md-6">
+                            <div class="home-contain">
+                                <img src="https://outlet119.com/wp-content/uploads/2019/12/Online-Sports-Equipment-2048x1152.jpg" class="bg-img blur-up lazyload"
+                                    alt="">
+                                <div class="home-detail p-center-left home-p-sm w-75">
+                                    <div>
+                                        <h2 class="mt-0 text-danger">45% <span class="discount text-title">OFF</span>
+                                        </h2>
+                                        <h3 class="theme-color">Nut Collection</h3>
+                                        <p class="w-75">We deliver organic vegetables & fruits</p>
+                                        <a href="javascript:void(0)" class="shop-button">Shop Now <i
+                                                class="fa-solid fa-right-long"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12 col-md-6">
+                            <div class="home-contain">
+                                <img src="https://image.freepik.com/free-photo/modern-badminton-equipment-composition_23-2148000529.jpg" class="bg-img blur-up lazyload"
+                                    alt="">
+                                <div class="home-detail p-center-left home-p-sm w-75">
+                                    <div>
+                                        <h3 class="mt-0 theme-color fw-bold">Healthy Food</h3>
+                                        <h4 class="text-danger">Organic Market</h4>
+                                        <p class="organic">Start your daily shopping with some Organic food</p>
+                                        <a href="javascript:void(0)" class="shop-button">Shop Now <i
+                                                class="fa-solid fa-right-long"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!-- Category Section Start -->
+    <section class="category-section-3 mt-3">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Shop By Categories</h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="category-slider-1 arrow-slider wow fadeInUp">
+                        {% for item in categories %}
+                        <div>
+                            <div class="category-box-list">
+                                <a href="{% url 'web:shop' %}?category={{ item.slug }}" class="category-name">
+                                    <h4>{{ item.name }}</h4>
+                                    <h6>{{ item.get_products.count }} items</h6>
+                                </a>
+                                <div class="category-box-view">
+                                    <a href="{% url 'web:shop' %}?category={{ item.slug }}">
+                                        <img src="{{ item.image.url }}"
+                                            class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+                                    <button onclick="location.href = '{% url 'web:shop' %}?category={{ item.slug }}';" class="btn shop-button">
+                                        <span>Shop Now</span>
+                                        <i class="fas fa-angle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Category Section End -->
+
+        <!-- Category Section Start -->
+        <section>
+            <div class="container-fluid-lg">
+                <div class="title">
+                    <h2>Shop By Brand</h2>
+                    <span class="title-leaf">
+                        <svg class="icon-width">
+                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                        </svg>
+                    </span>
+                    <p>Top Categories Of The Week</p>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="slider-9">
+                            {% for brand in brands %}
+                            <div>
+                                <a href="javascript:void(0)" class="category-box wow fadeInUp brand-img">
+                                    <div>
+                                        <img src="{{brand.image.url}}" class="blur-up lazyload" alt="{{brand.name}}">
+                                        <h5>{{brand.name}}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Category Section End -->
+
+        {% comment %} <!-- banner section start -->
+    <section>
+        <div class="container-fluid-lg">
+            <div class="row g-md-4 g-3">
+                <div class="col-xxl-12 col-xl-12 col-md-12">
+                    <div class="banner-contain hover-effect category-offer">
+                        <a href="{% url 'web:shop' %}?category={{ top_selling_category.category.slug }}"> <img src="{{ top_selling_category.image.url }}" class="img-fluid" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner section end --> {% endcomment %}
+    <!-- Deal Section Start -->
+    <section class="product-section product-section-3">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Top Selling Items</h2>
+            </div>
+            <div class="row g-sm-4 g-3">
+                <div class="col-xxl-12 ratio_110">
+                    <div class="slider-6 img-slider">
+                        {% for item in top_selling %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Deal Section End -->
+
+
+    {% comment %} <!-- banner section start -->
+    <section>
+        <div class="container-fluid-lg">
+            <div class="row g-md-4 g-3">
+                <div class="col-xxl-12 col-xl-12 col-md-12">
+                    <div class="banner-contain hover-effect category-offer">
+                        <a href="{% url 'web:shop' %}?category={{ popular_products_category.category.slug }}"> <img src="{{ popular_products_category.image.url }}" class="img-fluid" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner section end --> {% endcomment %}
+
+
+    <!-- Deal Section Start -->
+    <section class="product-section product-section-3">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Popular Products</h2>
+            </div>
+            <div class="row g-sm-4 g-3 section-b-space">
+                <div class="col-xxl-12 ratio_110">
+                    <div class="slider-6 img-slider">
+                        {% for item in popular_products %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Deal Section End -->
+    <!-- banner section start -->
+    <section>
+        <div class="container-fluid-lg">
+            <div class="row g-md-4 g-3">
+                <div class="col-xxl-12 col-xl-12 col-md-12">
+                    <div class="banner-contain hover-effect category-offer">
+                        <a href="{% url 'web:shop' %}?category={{ new_products_category.category.slug }}"> <img src="{{ new_products_category.image.url }}" class="img-fluid" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner section end -->
+    <!-- Deal Section Start -->
+    <section class="product-section product-section-3">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>New Arrival</h2>
+            </div>
+            <div class="row g-sm-4 g-3">
+                <div class="col-xxl-12 ratio_110">
+                    <div class="slider-6 img-slider">
+                        {% for item in new_products %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Deal Section End -->
+    {% endblock  %}

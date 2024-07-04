@@ -1,0 +1,186 @@
+{% load static %}
+   <!-- Footer Start -->
+   <footer class="section-t-space footer-section-2">
+    <div class="container-fluid-lg">
+        <div class="main-footer">
+            <div class="row g-md-4 gy-sm-5 gy-2">
+                <div class="col-xxl-3 col-xl-4 col-sm-6">
+                    <a href="index.html" class="foot-logo">
+                        <img src="{% static 'web/images/logo/logo.png' %}" class="img-fluid" alt="">
+                    </a>
+                    <p class="information-text">it is a long established fact that a reader will be distracted
+                        by the readable content.</p>
+                    <ul class="social-icon">
+                        <li>
+                            <a href="www.facebook.html">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="www.goolge.html">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="www.twitter.html">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="www.instagram.html">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="www.pinterest.html">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    {% comment %} <div class="social-app mt-sm-4 mt-3 mb-4">
+                        <ul>
+                            <li>
+                                <a href="https://play.google.com/store/apps" target="_blank">
+                                    <img src="{% static 'web/images/playstore.svg' %}" class="blur-up lazyload" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.apple.com/in/app-store/" target="_blank">
+                                    <img src="{% static 'web/images/appstore.svg' %}" class="blur-up lazyload" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div> {% endcomment %}
+                </div>
+
+                <div class="col-xxl-2 col-xl-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>About Track & Field</h4>
+                    </div>
+                    <ul class="footer-list footer-contact mb-sm-0 mb-3">
+                        <li>
+                            <a href="about-us.html" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>About Us</a>
+                        </li>
+                        <li>
+                            <a href="contact-us.html" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="term_condition.html" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>Terms & Coditions</a>
+                        </li>
+
+                        <li>
+                            <a href="blog-list.html" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>Latest Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xxl-2 col-xl-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Useful Link</h4>
+                    </div>
+                    <ul class="footer-list footer-contact mb-sm-0 mb-3">
+
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'web:user_order' %}" class="footer-contain-2">
+                                {% else %}
+                                <a href="{% url 'auth_login' %}" class="footer-contain-2">
+                                {% endif %}
+                                <i class="fas fa-angle-right"></i>Track Orders</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'web:wishlist' %}" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>Your Wishlist</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'web:cart' %}" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>Cart</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xxl-2 col-xl-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Categories</h4>
+                    </div>
+                    <ul class="footer-list footer-contact mb-sm-0 mb-3">
+                        {% for category in header_category %}
+                        <li>
+                            <a href="{% url 'web:shop' %}?category={{ category.slug }}" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>{{category.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="col-xxl-3 col-xl-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Store infomation</h4>
+                    </div>
+                    <ul class="footer-address footer-contact">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <div class="inform-box flex-start-box">
+                                    <i data-feather="map-pin"></i>
+                                    <p>Track&Field Manjeri, road, Pullara, Kerala 673642</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="tel:8075029472">
+                                <div class="inform-box">
+                                    <i data-feather="phone"></i>
+                                    <p>Call us: 8075029472</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:trackandfieldpullara12@gmail.com">
+                                <div class="inform-box">
+                                    <i data-feather="mail"></i>
+                                    <p>Email Us: trackandfieldpullara12@gmail.com</p>
+                                </div>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-footer section-small-space">
+            <div class="left-footer">
+                <p>Copyright {% now 'Y' %} Track & Field Developed By <a target="_blank" href="https://zeydox.com/">Zeydox solutions
+                </a></p>
+            </div>
+            <div class="right-footer">
+                <ul class="payment-box">
+                    <li>
+                        <img src="{% static 'web/images/icon/paymant/visa.png' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'web/images/icon/paymant/discover.png' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'web/images/icon/paymant/american.png' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'web/images/icon/paymant/master-card.png' %}" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'web/images/icon/paymant/giro-pay.png' %}" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End -->

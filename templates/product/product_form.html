@@ -1,0 +1,229 @@
+{% extends 'app/base.html' %}
+{% load static i18n crispy_forms_tags %}
+{% block title %}New/Change {{title}}: {{app_settings.site_title}}{% endblock %}
+
+{% block javascript %}
+{{form.media}}
+{{image_formset.media}}
+
+<script>
+    $(document).ready(function () {
+      // Function to update the slug based on the name
+      function updateSlug() {
+          var name = $('#id_name').val();
+          var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          $('#id_slug').val(slug);
+      }
+
+      // Attach the function to the change event of the name field
+      $('#id_name').on('input', updateSlug);
+  });
+  </script>
+{% endblock javascript %}
+
+{% block content %}
+
+<div class="side-app main-container edit_page">
+
+  <!--Page header-->
+  <div class="page-header d-flex">
+      <div class="page-leftheader">
+          <div class="page-title">New/Change Product</div>
+      </div>
+      <div class="page-rightheader ms-md-auto col-md-6 pe-0">
+        <div class="text-md-end text-center btn-list">
+          <div class="nav nav-pills justify-content-end" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link btn btn-pill me-2 mb-1 active" id="v-pills-product-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product" type="button" role="tab" aria-controls="v-pills-product" aria-selected="true">Product</button>
+            <button class="nav-link btn btn-pill me-2 mb-1" id="v-pills-variant-tab" data-bs-toggle="pill" data-bs-target="#v-pills-variant" type="button" role="tab" aria-controls="v-pills-variant" aria-selected="false">Variants</button>
+            <button class="nav-link btn btn-pill me-2 mb-1" id="v-pills-images-tab" data-bs-toggle="pill" data-bs-target="#v-pills-images" type="button" role="tab" aria-controls="v-pills-images" aria-selected="false">Images</button>
+          </div>
+
+        </div>
+      </div>
+  </div>
+    <!--End Page header-->
+
+    <form class="form-horizontal-col-six" method="post" autocomplete="off" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="tab-content w-100 mt-5" id="v-pills-tabContent">
+
+      <div class="tab-pane fade active show" id="v-pills-product" role="tabpanel" aria-labelledby="v-pills-product-tab">
+        <div class="row">
+          <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
+              <div class="card">
+                  <div class="card-header border-bottom-0">
+                      <h5 class="mb-0">New/Change Product</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12">
+                          <div class="form-horizontal-col-six">
+                          {% for field in form.visible_fields|slice:"0:11" %}
+                          {{ field|as_crispy_field }}
+                          {% endfor %}
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-variant" role="tabpanel" aria-labelledby="v-pills-variant-tab">
+        {{ variant_formset.management_form }}
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width: 30%;">unit</th>
+                  <th style="width: 10%;">price</th>
+                  <th style="width: 20%;">old_price(&#8377;)</th>
+
+                  <th ></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for form in variant_formset.forms %}
+                <tr class="sale_item_form_set_row">
+                  {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                  {% endfor %}
+                  <td>
+                    {{ form.title }}
+                    {{ form.item.errors }}
+                </td>
+                  <td>{{ form.price }}</td>
+                  <td>{{ form.old_price }}</td>
+
+                  <td style="vertical-align: middle;">{{ form.DELETE }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-translate" role="tabpanel" aria-labelledby="v-pills-translate-tab">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-horizontal-col-six">
+            {% for field in form.visible_fields|slice:"11:19" %}
+            {{ field|as_crispy_field }}
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- image formset -->
+      <div class="tab-pane fade" id="v-pills-images" role="tabpanel" aria-labelledby="v-pills-images-tab">
+        {{ image_formset.management_form }}
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width: 100%;">image</th>
+
+                  <th ></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for form in image_formset.forms %}
+                <tr class="image_form_set_row">
+                  {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                  {% endfor %}
+                  <td class="image_formset_class">
+                    {{ form.image|as_crispy_field }}
+                    {{ form.image.errors }}
+                  </td>
+
+                  <td style="vertical-align: middle;">{{ form.DELETE }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card save-btn">
+        <div class="card-body pt-0">
+          <div> <hr class="solid"></div>
+          <div class="mb-3">
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary me-2">{% translate "Save" %}</button>
+              <button type="button" onclick="history.back()" class="border btn btn-outline-info">{% translate "Cancel" %}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </div>
+</form>
+
+{% endblock content %}
+
+
+{% block extra_css %}
+<style>
+  .card{
+    margin-bottom: 0px !important;
+    border-radius: 4px 4px 0px 0px;
+  }
+  .card.save-btn{
+    border-radius: 0px;
+    box-shadow: none;
+  }
+</style>
+{% endblock  %}
+
+
+{% block js_plugins %}
+<script src="{% static 'app/js/formset/formset.js' %}"></script>
+<script>
+$(document).ready(function () {
+    // Your first script for formset
+    $('.sale_item_form_set_row').formset({
+      addText: '<span>Add Item</span>',
+      deleteText: '<i class="fa-solid fa-xmark"></i>',
+      prefix: '{{ variant_formset.prefix }}',
+      formCssClass: 'sale_item_form_set_row',
+      added: function (row) {
+        // Calculate total amount when a new row is added
+
+
+      },
+      removed: function (row) {
+        // Handle additional logic after removing a form
+      }
+    });
+
+    $('.image_form_set_row').formset({
+      addText: '<span>Add Item</span>',
+      deleteText: '<i class="fa-solid fa-xmark"></i>',
+      prefix: '{{ image_formset.prefix }}',
+      formCssClass: 'image_form_set_row',
+      added: function (row) {
+        // Calculate total amount when a new row is added
+
+
+      },
+      removed: function (row) {
+        // Handle additional logic after removing a form
+      }
+    });
+
+    $(".image_formset_class").each(function () {
+        $(this).find(".mb-3").removeClass("col-lg-6 col-md-4 col-sm-6 col-12").addClass("col-lg-12 col-md-12 col-sm-12 col-12");;
+
+    });
+
+
+
+  });
+</script>
+{% endblock js_plugins %}

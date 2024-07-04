@@ -1,0 +1,615 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% load cart_tags %}
+{% block content %}
+
+
+
+    <!-- Product Left Sidebar Start -->
+    <section class="product-section product-custom">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="row g-4">
+                        <div class="col-xl-6 ">
+                            <div class="product-left-box">
+                                <div class="row g-sm-4 g-2">
+                                    <div class="col-12">
+                                        <div class="product-main no-arrow">
+                                            {% for img in product.get_images %}
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="{{ img.image.url }}"
+                                                        class="img-fluid image_zoom_cls-1 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="left-slider-image left-slider no-arrow slick-top">
+                                            {% for img in product.get_images %}
+                                           <div>
+                                                <div class="sidebar-image">
+                                                    <img src="{{ img.image.url }}"
+                                                        class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 ">
+                            <div class="right-box-contain cart-div">
+                                <h2 class="name">{{ product.name }}</h2>
+                                <h5 class="cat">{{product.subcategory}}</h5>
+                                <!-- <h6 class="offer-top">30% Off</h6> -->
+                                <!-- <div class="product-rating custom-rate mb-3">
+                                    <ul class="rating">
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star"></i>
+                                        </li>
+                                    </ul>
+                                    <span class="review">23 Customer Review </span>
+                                </div> -->
+                                <div class="price-rating mb-1 mt-3">
+
+                                    <h3 class="price"><span class="font-normal">price</span>
+                                        <div class="current-price">₹ {{product.get_product_variant.price}}
+                                        </div>
+                                        <del class="text-content">₹{{product.get_product_variant.old_price}}</del>
+                                        <span class="offer offer_percent">{{product.get_product_variant.offer_percent|floatformat:0}}% off</span>
+
+                                    </h3>
+                                </div>
+                                <div class="save-price font-normal mb-1">
+                                    <i class="fa-solid fa-tag"></i>
+                                    <span class="saved-price">Saved Price ₹{{product.get_product_variant.get_saved_price}}</span>
+                                </div>
+
+
+
+                                <div class="w-100">Inclusive of all taxes</div>
+
+
+                                <div class="product-package">
+                                    <div class="product-title">
+                                        <h4>Variants </h4>
+                                    </div>
+
+                                    <ul class="rectangle select-package">
+                                        {% for size in product.get_product_variants %}
+                                        <li class="form-check">
+                                            <input class="form-check-input" value="{{ size.id }}" data-sale-price="{{size.price}}" data-regular-price="{{ size.old_price }}" {% if forloop.first %}checked{% endif %} type="radio" name="size" id="small">
+                                            <label class="form-check-label" for="small">
+                                                <span>{{size.title}}</span>
+                                            </label>
+                                        </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+
+                                <div class="product-highlights mt-4">
+                                    <ul>
+                                        <li><i class="bi bi-shield-lock"></i>Secure Payments</li>
+                                        <li><i class="bi bi-truck"></i>In stock, Ready to Ship</li>
+                                    </ul>
+                                </div>
+
+
+
+                                <div class="note-box product-package">
+                                    <div class="cart_qty qty-box product-qty">
+                                        <div class="input-group">
+                                            <button type="button" class="qty-left-minus" data-type="minus"
+                                                data-field="">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text"
+                                                name="quantity" value="1" min="1" readonly>
+                                            <button type="button" class="qty-right-plus" data-type="plus" data-field="">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <button id="cart-add-btn"
+                                        class="btn btn-md bg-dark cart-button text-white w-100" data-product-id="{{product.get_sizes.first.id}}">Add To Cart</button>
+                                </div>
+
+                                <div class="buy-box">
+                                    <button class="wishlist-btn" class="notifi-wishlist" data-product="{{ product.id }}">
+                                        <i data-feather="heart"></i>
+                                        <span>Add To Wishlist</span>
+                                    </button>
+                                </div>
+                                <button onclick="orderOnWhatsApp('{{ product.get_absolute_url }}')" class="wp-btn btn btn-md bg-dark cart-button text-white w-100">Order On Whatsapp</button>
+
+
+
+
+                                <!-- <div class="payment-option">
+                                    <div class="product-title">
+                                        <h4>Guaranteed Safe Checkout</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'web/images/product/payment/1.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'web/images/product/payment/2.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'web/images/product/payment/3.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'web/images/product/payment/4.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'web/images/product/payment/5.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Product Left Sidebar End -->
+
+    <!-- Nav Tab Section Start -->
+    <section>
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-section-box m-0">
+                        <ul class="nav nav-tabs custom-nav" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                    data-bs-target="#description" type="button" role="tab">Description</button>
+                            </li>
+
+
+                            <!-- <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review"
+                                    type="button" role="tab">Review</button>
+                            </li> -->
+                        </ul>
+
+                        <div class="tab-content custom-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                <div class="product-description">
+                                    <div class="nav-desh">
+                                        <p>{{product.description|safe}}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="review" role="tabpanel">
+                                <div class="review-box">
+                                    <div class="row">
+                                        <div class="col-xl-5">
+                                            <div class="product-rating-box">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="product-main-rating">
+                                                            <h2>3.40
+                                                                <i data-feather="star"></i>
+                                                            </h2>
+
+                                                            <h5>5 Overall Rating</h5>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-12">
+                                                        <ul class="product-rating-list">
+                                                            <li>
+                                                                <div class="rating-product">
+                                                                    <h5>5<i data-feather="star"></i></h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 40%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <h5 class="total">2</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="rating-product">
+                                                                    <h5>4<i data-feather="star"></i></h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 20%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <h5 class="total">1</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="rating-product">
+                                                                    <h5>3<i data-feather="star"></i></h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 0%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <h5 class="total">0</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="rating-product">
+                                                                    <h5>2<i data-feather="star"></i></h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 20%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <h5 class="total">1</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="rating-product">
+                                                                    <h5>1<i data-feather="star"></i></h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 20%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <h5 class="total">1</h5>
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
+
+                                                        <div class="review-title-2">
+                                                            <h4 class="fw-bold">Review this product</h4>
+                                                            <p>Let other customers know what you think</p>
+                                                            <button class="btn" type="button" data-bs-toggle="modal"
+                                                                data-bs-target="#writereview">Write a
+                                                                review</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-7">
+                                            <div class="review-people">
+                                                <ul class="review-list">
+                                                    <li>
+                                                        <div class="people-box">
+                                                            <div>
+                                                                <div class="people-image people-text">
+                                                                    <img alt="user" class="img-fluid "
+                                                                        src="{% static 'web/images/review/1.jpg' %}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="people-comment">
+                                                                <div class="people-name"><a href="javascript:void(0)"
+                                                                        class="name">Jack Doe</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content"> 29 Sep 2023
+                                                                            06:40:PM
+                                                                        </h6>
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="reply">
+                                                                    <p>Avoid this product. The quality is
+                                                                        terrible, and
+                                                                        it started falling apart almost
+                                                                        immediately. I
+                                                                        wish I had read more reviews before
+                                                                        buying.
+                                                                        Lesson learned.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="people-box">
+                                                            <div>
+                                                                <div class="people-image people-text">
+                                                                    <img alt="user" class="img-fluid "
+                                                                        src="{% static 'web/images/review/2.jpg' %}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="people-comment">
+                                                                <div class="people-name"><a href="javascript:void(0)"
+                                                                        class="name">Jessica
+                                                                        Miller</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content"> 29 Sep 2023
+                                                                            06:34:PM
+                                                                        </h6>
+                                                                        <div class="product-rating">
+                                                                            <div class="product-rating">
+                                                                                <ul class="rating">
+                                                                                    <li>
+                                                                                        <i data-feather="star"
+                                                                                            class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"
+                                                                                            class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"
+                                                                                            class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"
+                                                                                            class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"></i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="reply">
+                                                                    <p>Honestly, I regret buying this item. The
+                                                                        quality
+                                                                        is subpar, and it feels like a waste of
+                                                                        money. I
+                                                                        wouldn't recommend it to anyone.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="people-box">
+                                                            <div>
+                                                                <div class="people-image people-text">
+                                                                    <img alt="user" class="img-fluid "
+                                                                        src="{% static 'web/images/review/3.jpg' %}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="people-comment">
+                                                                <div class="people-name"><a href="javascript:void(0)"
+                                                                        class="name">Rome Doe</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content"> 29 Sep 2023
+                                                                            06:18:PM
+                                                                        </h6>
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="reply">
+                                                                    <p>I am extremely satisfied with this
+                                                                        purchase. The
+                                                                        item arrived promptly, and the quality
+                                                                        is
+                                                                        exceptional. It's evident that the
+                                                                        makers paid
+                                                                        attention to detail. Overall, a
+                                                                        fantastic buy!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="people-box">
+                                                            <div>
+                                                                <div class="people-image people-text">
+                                                                    <img alt="user" class="img-fluid "
+                                                                        src="{% static 'web/images/review/4.jpg' %}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="people-comment">
+                                                                <div class="people-name"><a href="javascript:void(0)"
+                                                                        class="name">Sarah
+                                                                        Davis</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content"> 29 Sep 2023
+                                                                            05:58:PM
+                                                                        </h6>
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="reply">
+                                                                    <p>I am genuinely delighted with this item.
+                                                                        It's a
+                                                                        total winner! The quality is superb, and
+                                                                        it has
+                                                                        added so much convenience to my daily
+                                                                        routine.
+                                                                        Highly satisfied customer!</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="people-box">
+                                                            <div>
+                                                                <div class="people-image people-text">
+                                                                    <img alt="user" class="img-fluid "
+                                                                        src="{% static 'web/images/review/5.jpg' %}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="people-comment">
+                                                                <div class="people-name"><a href="javascript:void(0)"
+                                                                        class="name">John Doe</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content"> 29 Sep 2023
+                                                                            05:22:PM
+                                                                        </h6>
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                        class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="reply">
+                                                                    <p>Very impressed with this purchase. The
+                                                                        item is of
+                                                                        excellent quality, and it has exceeded
+                                                                        my
+                                                                        expectations.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Nav Tab Section End -->
+
+    <!-- Related Product Section Start -->
+    <section class="product-list-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Related Products</h2>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-6_1 product-wrapper">
+                        {% for item in products %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Related Product Section End -->
+
+    {% endblock  %}
+
+    {% block js %}
+    <script src="{% static 'web/js/product-detail.js' %}"></script>
+
+    {% endblock  %}

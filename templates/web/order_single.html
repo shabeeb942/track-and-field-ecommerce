@@ -1,0 +1,161 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Breadcrumb Section Start -->
+    <section class="breadcrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-contain">
+                        <h2>Order Detail</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="/">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active">Order Detail</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- User Dashboard Section Start -->
+    <section class="user-dashboard-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-body ">
+                        <div class="d-md-flex justify-content-between">
+                            <div class="d-flex align-items-center mb-2 mb-md-0">
+                                <h2 class="mb-0">Order ID: #{{order.order_id}}</h2>
+                                <span class="badge bg-light-warning text-dark-warning ms-2">{{order.order_status}}</span>
+                            </div>
+                            
+                        </div>
+                        <div class="mt-8 row mt-5">
+                            <div class="col-lg-6 col-md-6 col-12 mb-6">
+                                <h3 class="mb-3">Shipping Address</h3>
+                                <p class="mb-1 lh-lg">{{order.full_name}}<br>
+                                {{order.address_line_1}} <br>
+                                {{order.address_line_2}} <br>
+                                {{order.city}},{{order.district}},{{order.state}} <br>
+                                <strong>Pin Code :</strong> {{order.pin_code}} <br>
+                                <strong>Contact No.</strong> {{order.mobile_no}}</p>
+                            </div>
+                            <!-- address -->
+                            <div class="col-lg-6 col-md-6 col-12 mb-6">
+                                <h3 class="mb-3">Order Details</h3>
+                                <p class="mb-1 lh-lg">
+                                    <strong>Order ID:</strong> <span class="text-dark">{{order.order_id}}</span><br>
+                                    <strong>Order Date:</strong> <span class="text-dark">{{order.created}}</span><br>
+                                    <strong>Order Total:</strong>  <span class="text-dark">₹{{order.payable}}</span><br>
+                                    <strong>Order Status:</strong> <span class="text-dark">{{order.get_order_status_display}}</span><br>
+                                    <strong>Payment Method:</strong> <span class="text-dark">{{order.get_payment_method_display}}</span><br>
+                                    <strong>Payment Status:</strong> <span class="text-dark">{{order.get_payment_status_display}}</span><br>
+                                </p>
+                            </div>
+                        </div>
+                </div>
+                 </div>
+
+                <div class="col-12">
+                    <div class=" table-responsive">
+                        <!-- Table -->
+                        <table class="table mb-0 text-nowrap table-centered">
+                        <!-- Table Head -->
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <!-- tbody -->
+                            <tbody>
+                                {% for i in order.get_items %}
+                                <tr>
+                                    <td>
+                                        <a href="{{i.product.product.get_absolute_url}}" class="text-inherit">
+                                            <div class="ms-lg-4 mt-2 mt-lg-0">
+                                                <h5 class="mb-0 h6">
+                                                    {% if i.product.product.category.is_combo %}
+                                                    {{i.product.product.name}}
+                                                    {% else %}
+                                                    {{i.product}}
+                                                    {% endif %}
+                                                </h5>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td><span class="text-body">₹ {{i.price}}</span></td>
+                                    <td>{{i.quantity}}</td>
+                                    <td>₹ {{i.subtotal}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% comment %} <tr>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td colspan="1" class="fw-medium text-dark ">
+                                      <!-- text -->
+                                      Sub Total :
+                                    </td>
+                                    <td class="fw-medium text-dark ">
+                                      <!-- text -->
+                                      ₹{{order.subtotal}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td colspan="1" class="fw-medium text-dark ">
+                                      <!-- text -->
+                                      Service Cost :
+                                    </td>
+                                    <td class="fw-medium text-dark ">
+                                      <!-- text -->
+                                      ₹{{order.service_fee}}
+                                    </td>
+                                </tr> {% endcomment %}
+                                <tr>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td colspan="1" class="fw-medium text-dark ">
+                                      <!-- text -->
+                                    <strong>  Shipping Cost : </strong>
+                                    </td>
+                                    <td class="fw-medium text-dark ">
+                                      <!-- text -->
+                                      ₹{{order.shipping_fee}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td class="border-bottom-0 pb-0"></td>
+                                    <td colspan="1" class="fw-medium text-dark ">
+                                      <!-- text -->
+                                     <strong> Grand Total : </strong>
+                                    </td>
+                                    <td class="fw-medium text-dark ">
+                                      <!-- text -->
+                                      ₹{{order.payable}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- User Dashboard Section End -->
+
+    {% endblock  %}

@@ -1,0 +1,140 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+    {% comment %} {% if title %}
+    <div class="card mb-4 bg-light border-0">
+        <!-- card body -->
+        <div class="card-body p-9 text-center">
+            <h2 class="mb-0 fs-1">{{ title }}</h2>
+        </div>
+    </div>
+    {% endif %} {% endcomment %}
+
+    <!-- Shop Section Start -->
+    <section class="section-b-space shop-section">
+        <div class="container-fluid-lg">
+            <div class="row">
+
+
+                <div class="col-12">
+                    <div class="show-button">
+                        <div class="filter-button-group mt-0">
+                            <div class="filter-button d-inline-block d-lg-none">
+                                <a><i class="fa-solid fa-filter"></i> Filter Menu</a>
+                            </div>
+                        </div>
+
+                        <!-- <div class="top-filter-menu">
+                            <div class="category-dropdown">
+                                <h5 class="text-content">Sort By :</h5>
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                        data-bs-toggle="dropdown">
+                                        <span>Most Popular</span> <i class="fa-solid fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" id="pop" href="javascript:void(0)">Popularity</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" id="low" href="javascript:void(0)">Low - High
+                                                Price</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" id="high" href="javascript:void(0)">High - Low
+                                                Price</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" id="rating" href="javascript:void(0)">Average
+                                                Rating</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" id="aToz" href="javascript:void(0)">A - Z Order</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" id="zToa" href="javascript:void(0)">Z - A Order</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" id="off" href="javascript:void(0)">% Off - Hight To
+                                                Low</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div> -->
+                    </div>
+
+                    <div
+                        class="row g-sm-4 g-3 row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 product-list-section">
+
+                        {% for item in products %}
+                        {% include "web/partials/products.html" %}
+                        {% empty %}
+                        <img class="img-fluid mx-auto" src="https://cdn-preprodf.iffcobazar.in/iffcobazaar/static/media/icons/large/no-product.svg?v=0.0" alt="">
+                        {% endfor %}
+
+                    </div>
+
+                    {% if is_paginated %}
+
+                    <nav class="custom-pagination">
+
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                                <a class="page-link mx-1" href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}&category={{ request.GET.category }}{% else %}#{% endif %}" aria-label="Previous">
+                                    <i class="fa-solid fa-angles-left"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                            <!-- {% for num in page_obj.paginator.page_range %}
+                                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                                    <a class="page-link mx-1" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% endfor %} -->
+                            {% if page_obj.previous_page_number > 2 %}
+                            <li class="page-item">
+                                <a class="page-link mx-1" href="?page={{page_obj.number|add:'-2'}}&category={{ request.GET.category }}&sub_category={{ request.GET.sub_category }}"> {{ page_obj.number|add:"-2" }} </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link mx-1" href="?page={{page_obj.number|add:'-1'}}&category={{ request.GET.category }}&sub_category={{ request.GET.sub_category }}"> {{ page_obj.number|add:"-1" }} </a>
+                            </li>
+                            {% endif %}
+                            <li class="page-item active">
+                                <a class="page-link mx-1" href='?page={{page_obj.number}}&category={{ request.GET.category }}&sub_category={{ request.GET.sub_category }}'>{{ page_obj.number }}</a>
+                            </li>
+                            {% if page_obj.paginator.num_pages > page_obj.number|add:"2" %}
+                            <li class="page-item">
+                                <a class="page-link mx-1" href="?page={{page_obj.number|add:'1'}}&category={{ request.GET.category }}&sub_category={{ request.GET.sub_category }}"> {{ page_obj.number|add:"1" }} </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link mx-1" href="?page={{page_obj.number|add:'2'}}&category={{ request.GET.category }}&sub_category={{ request.GET.sub_category }}"> {{ page_obj.number|add:"2" }} </a>
+                            </li>
+                            {% endif %}
+                            {% if page_obj.has_next %}
+                            <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                                <a class="page-link mx-1" href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}&category={{ request.GET.category }}&sub_category={{ request.GET.sub_category }}{% else %}#{% endif %}" aria-label="Next">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Section End -->
+
+   {% endblock %}
+
+   {% block js %}
+
+   {% endblock  %}

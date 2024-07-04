@@ -1,0 +1,243 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Section Start -->
+<section class="breadcrumb-section pt-0">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain">
+                    <h2>Contact Us</h2>
+                    <nav>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item">
+                                <a href="/">
+                                    <i class="fa-solid fa-house"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active">Contact Us</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Contact Box Section Start -->
+<section class="contact-box-section">
+    <div class="container-fluid-lg">
+        <div class="row g-lg-5 g-3">
+            <div class="col-lg-6">
+                <div class="title d-xxl-none d-block">
+                    <h2>Contact Us</h2>
+                </div>
+                <form class=" " method="post">
+                    {% csrf_token %}
+                    <div class="right-sidebar-box">
+                        <div class="row">
+                            <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                <div class="mb-md-4 mb-3 custom-form">
+                                    <label for="exampleFormControlInput" class="form-label">First Name</label>
+                                    <div class="custom-input">
+                                        {{form.name}}
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                <div class="mb-md-4 mb-3 custom-form">
+                                    <label for="exampleFormControlInput2" class="form-label">Email Address</label>
+                                    <div class="custom-input">
+                                        {{form.email}}
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                <div class="mb-md-4 mb-3 custom-form">
+                                    <label for="exampleFormControlInput3" class="form-label">Phone Number</label>
+                                    <div class="custom-input">
+                                        {{form.phone}}
+                                        <i class="fa-solid fa-mobile-screen-button"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="mb-md-4 mb-3 custom-form">
+                                    <label for="exampleFormControlTextarea" class="form-label">Message</label>
+                                    <div class="custom-textarea">
+                                        {{form.message}}
+                                        <i class="fa-solid fa-message"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-animation btn-md fw-bold ms-auto">Send Message</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="left-sidebar-box">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="contact-image">
+                                <img src="../assets/images/inner-page/contact-us.png"
+                                    class="img-fluid blur-up lazyloaded" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="contact-title">
+                                <h3>Get In Touch</h3>
+                            </div>
+
+                            <div class="contact-detail">
+                                <div class="row g-4">
+                                    <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                        <div class="contact-detail-box">
+                                            <div class="contact-icon">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                            <div class="contact-detail-title">
+                                                <h4>Phone</h4>
+                                            </div>
+
+                                            <div class="contact-detail-contain">
+                                                <a href="tel:+91 8075029472">
+                                                    <p>+91 8075029472</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                        <div class="contact-detail-box">
+                                            <div class="contact-icon">
+                                                <i class="fa-solid fa-envelope"></i>
+                                            </div>
+                                            <div class="contact-detail-title">
+                                                <h4>Email</h4>
+                                            </div>
+
+                                            <div class="contact-detail-contain">
+                                                <a href="mailto:trackandfieldpullara12@gmail">
+                                                    <p>trackandfieldpullara12@gmail.com</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                        <div class="contact-detail-box">
+                                            <div class="contact-icon">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div class="contact-detail-title">
+                                                <h4>Manjeri Branch</h4>
+                                            </div>
+
+                                            <div class="contact-detail-contain">
+                                                <a href="https://maps.app.goo.gl/YzAMwTpB78bqbSMB9">
+                                                    <p>Track&Field Manjeri, road, Pullara, Kerala 673642</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                        <div class="contact-detail-box">
+                                            <div class="contact-icon">
+                                                <i class="fa-solid fa-building"></i>
+                                            </div>
+                                            <div class="contact-detail-title">
+                                                <h4>Malappuram Branch</h4>
+                                            </div>
+
+                                            <div class="contact-detail-contain">
+                                                <a href="https://maps.app.goo.gl/w3YA2aqeZReA3Jat6">
+                                                    <p> Market Rd, Down Hill, Malappuram, Kerala 676505</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-6 col-lg-12 col-sm-6">
+                                        <div class="contact-detail-box">
+                                            <div class="contact-icon">
+                                                <i class="fa-solid fa-building"></i>
+                                            </div>
+                                            <div class="contact-detail-title">
+                                                <h4>Olimpian Manjeri Branch</h4>
+                                            </div>
+
+                                            <div class="contact-detail-contain">
+                                                <a href="https://maps.app.goo.gl/Dk7EJoVgy6pdx3TT8">
+                                                    <p>Vellarangal, Manjeri, Kerala 676121</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- Contact Box Section End -->
+<section class="map-section">
+    <!-- 3 columns -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="box map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125273.4332105665!2d75.9404202123001!3d11.128655878165077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6492e1eb20819%3A0x8444935c1a0b7b32!2sTrack%20and%20Field%20Pullara!5e0!3m2!1sen!2sin!4v1719147389115!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="box map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125288.9389609237!2d75.94938803586305!3d11.092546278949506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64b0050b1d0c9%3A0xf55197a8a4dcaf0!2sTrack%20and%20field%20malappuram!5e0!3m2!1sen!2sin!4v1719147450027!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="box map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125273.76882661792!2d75.96797258644561!3d11.127875524725358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6373943c3df6b%3A0x7f687d2a463d22a3!2sOlimpian%20Sports%20%26Toys!5e0!3m2!1sen!2sin!4v1719147698361!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% comment %} <div class="container-fluid p-0">
+        <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2994.3803116994895!2d55.29773782339708!3d25.222534631321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m5!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!3m2!1d25.2048493!2d55.2707828!4m0!5e1!3m2!1sen!2sin!4v1652217109535!5m2!1sen!2sin"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div> {% endcomment %}
+</section>
+{% endblock %}

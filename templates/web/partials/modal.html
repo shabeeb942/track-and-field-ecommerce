@@ -1,0 +1,153 @@
+{% load cart_tags %}
+
+{% for item in products %}
+
+<div class="modal location-modal fade theme-modal" id="ProductModal-{{item.slug}}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{item.image.url}}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-8">
+                        <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+                        <p class="mt-1 text-content">{{item.subcategory}}</p>
+                        <a class="btn btn-success goto-cart w-50" style="margin-top:10px;"  href="{% url 'web:cart'%}"> Go To Cart</a>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <div class="location-list">
+
+
+                    <div class="disabled-box mt-0">
+                        <h6>Choose a size</h6>
+                    </div>
+
+                    {% for i in item.get_product_variants %}
+
+                    <div class="row align-items-center var-modal">
+                        <div class="col-6 var-info">
+                            <h4>{{i.title}}</h4>
+                            <div class="var-price">
+                                    <p>₹ {{i.price}}</p>
+                                    {% if i.old_price %}<del>₹ {{i.old_price}}</del>{% endif %}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="add-to-cart-box ">
+                                <button data-product-id="{{i.id}}" data-quantity="{% get_carted_quantity i %}" class="btn btn-add-cart addcart-button qty-plus-btn mt-0 modal-addcart">Add to cart</button>
+
+                                <div class="cart_qty qty-box modal-addcart1">
+                                    <div class="input-group ">
+                                        <button data-product-id="{{i.id}}" type="button" class="qty-left-minus bg-gray qty-minus"
+                                            data-type="minus" data-field="">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+
+                                        <input id="quantity-{{i.id}}" class="form-control input-number qty-input" type="text"
+                                            name="quantity" value="{% get_carted_quantity i %}">
+
+                                        <button data-product-id="{{i.id}}" type="button" class="qty-right-plus bg-gray qty-plus"
+                                            data-type="plus" data-field="">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+
+{% for item in wishlist_items %}
+
+<div class="modal location-modal fade theme-modal" id="ProductModal-{{item.product.slug}}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{item.product.image.url}}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-8">
+                        <h5 class="modal-title" id="exampleModalLabel">{{item.product.name}}</h5>
+                        <p class="mt-1 text-content">{{item.product.subcategory}}</p>
+                    </div>
+                </div>
+
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <div class="location-list">
+
+
+                    <div class="disabled-box mt-0">
+                        <h6>Choose a size</h6>
+                    </div>
+
+                    {% for i in item.product.get_product_variants %}
+
+                    <div class="row align-items-center var-modal">
+                        <div class="col-6 var-info">
+                            <h4>{{i.title}}</h4>
+                            <div class="var-price">
+                                    <p>₹ {{i.price}}</p>
+                                    {% if i.old_price %}<del>₹ {{i.old_price}}</del>{% endif %}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="add-to-cart-box ">
+                                <button data-product-id="{{i.id}}" class="btn btn-add-cart addcart-button qty-plus-btn mt-0 modal-addcart">Add to cart
+                                    <span class="add-icon bg-light-gray">
+
+                                    </span>
+                                </button>
+
+                                <div class="cart_qty qty-box">
+                                    <div class="input-group ">
+                                        <button data-product-id="{{i.id}}" type="button" class="qty-left-minus bg-gray qty-minus"
+                                            data-type="minus" data-field="">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                        <input id="quantity-{{i.id}}" class="form-control input-number qty-input" type="text"
+                                            name="quantity" value="0">
+                                        <button data-product-id="{{i.id}}" type="button" class="qty-right-plus bg-gray qty-plus"
+                                            data-type="plus" data-field="">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}

@@ -1,0 +1,274 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+    <!-- Checkout section Start -->
+    <section class="checkout-section-2 section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row g-sm-4 g-3">
+                <div class="col-lg-8">
+                    <div class="left-sidebar-checkout">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                        <div class="checkout-detail-box">
+                            <ul>
+                                <li>
+
+                                        <div class="checkout-icon">
+                                            <lord-icon target=".nav-item" src="https://cdn.lordicon.com/ggihhudh.json"
+                                                trigger="loop-on-hover"
+                                                colors="primary:#121331,secondary:#646e78,tertiary:#0baf9a"
+                                                class="lord-icon">
+                                            </lord-icon>
+                                        </div>
+                                        <div class="checkout-box">
+                                            <div class="checkout-title">
+                                                <h4>Delivery Address</h4>
+                                            </div>
+
+                                            <div class="checkout-detail">
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_full_name">
+                                                            Full name
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="full_name" class="form-control" placeholder="Full name" maxlength="100" required="" id="id_full_name">
+
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_email">
+                                                            Email
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="email" name="email" class="form-control" placeholder="Email" maxlength="254" required="" id="id_email">
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_phone">
+                                                            Phone
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="mobile_no" class="form-control" placeholder="Phone" maxlength="15" required="" id="id_phone">
+
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                            <label for="id_phone">
+                                                            Alternate phone
+
+                                                                <small class="text-danger">*</small>
+
+                                                            </label>
+                                                            <input type="text" name="alternative_no" class="form-control" placeholder="Alternate phone" maxlength="15" required="" id="id_alternate_phone">
+
+
+                                                        </div>
+
+
+
+                                                        <div class=" col-12 mb-2">
+                                                        <label for="id_address_line_1">
+                                                            Complete Address
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="address_line_1" class="form-control" placeholder="House/Floor No. Building Name or Street, Locality" maxlength="100" required="" id="id_address_line_1">
+
+
+                                                        </div>
+                                                        <div class=" col-12 mb-2">
+                                                        <label for="id_address_line_2">
+                                                            Landmark
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="address_line_2" class="form-control" placeholder="Any nearby post office, market, Hospital as the landmark" maxlength="100" required="" id="id_address_line_2">
+
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_state">
+                                                            State
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="state" class="form-control" placeholder="State" maxlength="200" required="" id="id_state">
+
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_district">
+                                                            District
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="district" class="form-control" placeholder="District" maxlength="200" required="" id="id_district">
+
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_city">
+                                                            City
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="city" class="form-control" placeholder="City" maxlength="100" required="" id="id_city">
+
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-2">
+                                                        <label for="id_pin_code">
+                                                            Pin code
+
+                                                            <small class="text-danger">*</small>
+
+                                                        </label>
+                                                        <input type="text" name="pin_code" class="form-control" placeholder="Pin Code" required="" id="id_pin_code">
+
+
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+
+                                    <li>
+                                        <div class="checkout-icon">
+                                            <lord-icon target=".nav-item" src="https://cdn.lordicon.com/qmcsqnle.json"
+                                                trigger="loop-on-hover" colors="primary:#0baf9a,secondary:#0baf9a"
+                                                class="lord-icon">
+                                            </lord-icon>
+                                        </div>
+                                        <div class="checkout-box">
+                                            <div class="checkout-title d-none">
+                                                <h4>Payment Option</h4>
+                                            </div>
+
+                                            <div class="checkout-detail">
+                                                <div class="accordion accordion-flush custom-accordion" id="accordionFlushExample">
+                                                    {% comment %} <div class="accordion-item">
+                                                        <div class="accordion-header" id="flush-headingCash">
+                                                            <div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#flush-collapseCash">
+                                                                <div class="custom-form-check form-check mb-0">
+                                                                    <label class="form-check-label" for="cashCod">
+                                                                        <input class="form-check-input mt-0" type="radio" name="paymentMethod" id="cashCod" value="COD" checked>
+                                                                        Cash On Delivery
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="flush-collapseCash" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                                <p class="cod-review">Pay digitally with SMS Pay Link. Cash may not be accepted in COVID restricted areas. <a href="javascript:void(0)">Know more.</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div> {% endcomment %}
+                                                         <div class="accordion-item d-none">
+                                                        <div class="accordion-header" id="flush-headingOnline">
+                                                            <div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEmi">
+                                                                <div class="custom-form-check form-check mb-0">
+                                                                    <label class="form-check-label" for="onlinePayment">
+                                                                        <input class="form-check-input mt-0" type="radio" name="paymentMethod" id="onlinePayment" value="OP" checked>
+                                                                        Online Payment
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <!--  -->
+                                            <input type="hidden" id="shipping" name="shipping_price" value="{{shipping_price.price}}">
+                                            <input type="hidden" id="total_price" name="total_price" value="">
+                                            <!--  -->
+
+                                           <button class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold" type="submit">Place Order</button>
+
+                                        </div>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="right-side-summery-box">
+                        <div class="summery-box-2">
+                            <div class="summery-header">
+                                <h3>Order Summery</h3>
+                            </div>
+
+                            <ul class="summery-contain">
+                                {% for item in cart_items %}
+
+                                <li>
+                                    <img src="{{ item.product.product.image.url }}"
+                                        class="img-fluid blur-up lazyloaded checkout-image" alt="">
+                                    <h4>{{item.product.product.name|truncatechars:10}} <br>{{ item.product.title }} <span>X {{item.quantity}}</span></h4>
+                                    <h4 class="price">₹ {{item.total_price}}</h4>
+                                </li>
+                                {% endfor %}
+
+
+                            </ul>
+
+                            <ul class="summery-total">
+
+                                <li>
+                                    <h4>Shipping</h4>
+                                    <h4 id="shipping_price" data-shipping_price="{{shipping_price.price}}" class="price">₹{{shipping_price.price}}</h4>
+                                </li>
+
+                                <li></li>
+
+                                <li class="list-total">
+                                    <h4>Total </h4>
+                                    <h4 id="cart_total" class="price">₹ {{cart_total}}</h4>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+                        <!-- <button class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold">Place Order</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout section End -->
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'web/js/cart.js' %}"></script>
+
+{% endblock  %}

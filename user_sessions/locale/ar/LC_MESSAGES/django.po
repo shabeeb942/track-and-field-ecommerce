@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Bashar Al-Abdulhadi, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: django-user-sessions\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-06 02:14+0400\n"
+"PO-Revision-Date: 2017-08-03 14:58+0000\n"
+"Last-Translator: Bouke Haarsma <bouke@haarsma.eu>\n"
+"Language-Team: Arabic (http://www.transifex.com/Bouke/django-user-sessions/"
+"language/ar/)\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: user_sessions/admin.py:12
+msgid "Is Valid"
+msgstr "صالح"
+
+#: user_sessions/admin.py:16
+msgid "Active"
+msgstr "فعال"
+
+#: user_sessions/admin.py:16
+msgid "Expired"
+msgstr "منتهي"
+
+#: user_sessions/admin.py:26
+msgid "Owner"
+msgstr "المالك"
+
+#: user_sessions/admin.py:30
+msgid "Self"
+msgstr "شخصي"
+
+#: user_sessions/models.py:37
+msgid "session key"
+msgstr "مفتاح الجلسة"
+
+#: user_sessions/models.py:38
+msgid "session data"
+msgstr "بيانات الجلسة"
+
+#: user_sessions/models.py:39
+msgid "expiry date"
+msgstr "تاريخ الإنتهاء"
+
+#: user_sessions/models.py:43
+msgid "session"
+msgstr "الجلسة"
+
+#: user_sessions/models.py:44
+msgid "sessions"
+msgstr "الجلسات"
+
+#: user_sessions/templates/user_sessions/session_list.html:5
+msgid "<em>unknown on unknown</em>"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:6
+msgid "<em>unknown</em>"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:8
+msgid "Active Sessions"
+msgstr "الجلسات النشطة"
+
+#: user_sessions/templates/user_sessions/session_list.html:13
+msgid "Location"
+msgstr "المكان"
+
+#: user_sessions/templates/user_sessions/session_list.html:14
+msgid "Device"
+msgstr "الجهاز"
+
+#: user_sessions/templates/user_sessions/session_list.html:15
+msgid "Last Activity"
+msgstr "آخر نشاط"
+
+#: user_sessions/templates/user_sessions/session_list.html:24
+#, python-format
+msgid "%(time)s ago (this session)"
+msgstr "%(time)s مضت (هذه الجلسة)"
+
+#: user_sessions/templates/user_sessions/session_list.html:26
+#, python-format
+msgid "%(time)s ago"
+msgstr "%(time)s مضت"
+
+#: user_sessions/templates/user_sessions/session_list.html:36
+msgid ""
+"You can also end all other sessions but the current.\n"
+"        This will log you out on all other devices."
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:38
+msgid "End All Other Sessions"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:12
+msgid "Edge"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:13
+msgid "Opera"
+msgstr "أوبرا"
+
+#: user_sessions/templatetags/user_sessions.py:14
+msgid "Chrome"
+msgstr "جوجل كروم"
+
+#: user_sessions/templatetags/user_sessions.py:15
+msgid "Safari"
+msgstr "آبل سفاري"
+
+#: user_sessions/templatetags/user_sessions.py:16
+msgid "Firefox"
+msgstr "فايرفوكس"
+
+#: user_sessions/templatetags/user_sessions.py:17
+msgid "Internet Explorer"
+msgstr "إنترنت إكسبلورر"
+
+#: user_sessions/templatetags/user_sessions.py:20
+#, fuzzy
+#| msgid "Windows 7"
+msgid "Windows Mobile"
+msgstr "ويندوز 7"
+
+#: user_sessions/templatetags/user_sessions.py:21
+msgid "Android"
+msgstr "أندرويد"
+
+#: user_sessions/templatetags/user_sessions.py:22
+msgid "Linux"
+msgstr "لينوكس"
+
+#: user_sessions/templatetags/user_sessions.py:23
+msgid "iPhone"
+msgstr "آيفون"
+
+#: user_sessions/templatetags/user_sessions.py:24
+msgid "iPad"
+msgstr "آيباد"
+
+#: user_sessions/templatetags/user_sessions.py:25
+msgid "OS X Mavericks"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:26
+msgid "OS X Yosemite"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:27
+msgid "OS X El Capitan"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:28
+msgid "macOS Sierra"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:29
+msgid "macOS High Sierra"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:30
+msgid "macOS Mojave"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:31
+msgid "macOS Catalina"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:32
+msgid "macOS"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:33
+msgid "Windows XP"
+msgstr "ويندوز أكس بي"
+
+#: user_sessions/templatetags/user_sessions.py:34
+msgid "Windows Vista"
+msgstr "ويندوز ڤيستا"
+
+#: user_sessions/templatetags/user_sessions.py:35
+msgid "Windows 7"
+msgstr "ويندوز 7"
+
+#: user_sessions/templatetags/user_sessions.py:36
+msgid "Windows 8"
+msgstr "ويندوز 8"
+
+#: user_sessions/templatetags/user_sessions.py:37
+msgid "Windows 8.1"
+msgstr "ويندوز 8.1"
+
+#: user_sessions/templatetags/user_sessions.py:38
+msgid "Windows 10"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:39
+msgid "Windows"
+msgstr "ويندوز"
+
+#: user_sessions/templatetags/user_sessions.py:70
+#, python-format
+msgid "%(browser)s on %(device)s"
+msgstr "%(browser)s على %(device)s"
+
+#~ msgid "End Session"
+#~ msgstr "إنهاء الجلسة"
+
+#~ msgid "OS X"
+#~ msgstr "ماك او اس اكس"

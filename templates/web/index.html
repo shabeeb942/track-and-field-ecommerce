@@ -1,0 +1,554 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+
+   <!-- Home Section Start -->
+   <section class="home-section-2 home-section-bg pt-0 pb-0 overflow-hidden">
+    <div class="container-fluid p-0 ratio_27">
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-animate home-banner-slider skeleton-banner-xl">
+                    {% for banner in banners %}
+                    <div>
+                        <div class="home-contain rounded-0 p-0">
+                            <img src="{{banner.image.url}}"
+                                class="img-fluid bg-img blur-up lazyload" alt="">
+                            <div class="home-detail home-big-space p-center-left home-overlay position-relative">
+                                <div class="container-fluid-lg">
+                                    <div>
+                                        <h6 class="ls-expanded theme-color text-uppercase">{{banner.tag}}
+                                        </h6>
+                                        <h1 class="heding-2 text-light">{{banner.title}}</h1>
+                                        <h2 class="content-2 text-light">{{banner.subtitle}}</h2>
+                                        </h5>
+                                        <button
+                                            class="btn theme-bg-color btn-md text-white fw-bold mt-md-4 mt-2 mend-auto"
+                                            onclick="location.href = '{% url 'web:shop' %}?sub_category={{banner.sub_category.slug}}';">Shop Now <i
+                                                class="fa-solid fa-arrow-right icon"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- Category Section Start -->
+ <section class="category-section-3 mt-3">
+    <div class="container-fluid-lg">
+        <div class="title">
+            <h2>Shop By Categories</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="category-slider-1 arrow-slider wow fadeInUp">
+                    {% for item in categories %}
+                    <div>
+                        <div class="category-box-list">
+                            <a href="{% url 'web:shop' %}?category={{ item.slug }}" class="category-name">
+                                <h4>{{ item.name }}</h4>
+                                <h6>{{ item.get_products.count }} items</h6>
+                            </a>
+                            <div class="category-box-view">
+                                <a href="{% url 'web:shop' %}?category={{ item.slug }}">
+                                    <img src="{{ item.image.url }}"
+                                        class="img-fluid blur-up lazyload" alt="">
+                                </a>
+                                <button onclick="location.href = '{% url 'web:shop' %}?category={{ item.slug }}';" class="btn shop-button">
+                                    <span>Shop Now</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section
+
+    <!-- Value Section Start -->
+    <section>
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Best Value</h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="three-slider arrow-slider ratio_65">
+                        {% for offer in category_offers %}
+                        <div>
+                            <div class="offer-banner hover-effect">
+                                <img src="{{offer.image.url}}" class="img-fluid bg-img blur-up lazyload"
+                                    alt="">
+                                <div class="banner-detail">
+                                    <h5 class="theme-color">{{offer.category.name}}</h5>
+                                    <h6>{{offer.title}}</h6>
+                                </div>
+                                <div class="offer-box">
+                                    <button onclick="location.href = '{% url 'web:shop' %}?sub_category={{ offer.category.slug }}';"
+                                        class="btn-category btn theme-bg-color text-white">View Offer</button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Value Section End -->
+ <!-- Category Section Start -->
+ <section class="category-section-2">
+    <div class="container-fluid-lg">
+        <div class="title">
+            <h2>Shop By Brand</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="category-slider arrow-slider">
+                    {% for item in brands %}
+                    <div>
+                        <div class="shop-category-box border-0 wow fadeIn">
+                            <a href="{% url 'web:shop' %}?brand={{ item.slug }}" class="circle-1">
+                                <img src="{{ item.image.url }}" class="img-fluid blur-up lazyload" alt="{{ item.name }}">
+                            </a>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Section End -->
+    <!-- Deal Section Start -->
+    <section class="deal-section">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Deal Of The Day</h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="three-slider-1 arrow-slider">
+                        {% for deal in active_deals %}
+                        <div>
+                            <div class="deal-box wow fadeInUp" data-wow-delay="0.05s">
+                                <a href="{{ deal.product.get_absolute_url }}" class="category-image order-sm-2">
+                                    <img src="{{ deal.product.image.url }}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="deal-detail order-sm-1">
+
+                                    <div class="hot-deal">
+                                        <span>Hot Deals</span>
+                                    </div>
+                                    <ul class="rating">
+                                        <li><i data-feather="star" class="fill"></i></li>
+                                        <li><i data-feather="star" class="fill"></i></li>
+                                        <li><i data-feather="star"></i></li>
+                                        <li><i data-feather="star"></i></li>
+                                        <li><i data-feather="star"></i></li>
+                                    </ul>
+                                    <a href="{{ deal.product.get_absolute_url }}" class="text-title">
+                                        <h5>{{ deal.product.name }}</h5>
+                                    </a>
+                                    <h5 class="price">${{ deal.product.get_min_price }} <span>${{ deal.product.get_old_price }}</span></h5>
+                                    <div class="progress custom-progressbar">
+                                        <div class="progress-bar" style="width: 50%" role="progressbar"></div>
+                                    </div>
+                                    <h4 class="item">Sold: <span>30 Items</span></h4>
+                                    <h4 class="offer">Hurry up offer end in</h4>
+                                    <div class="timer" id="clockdiv-{{ deal.id }}" data-endtime="{{ deal.end_time|date:'c' }}">
+                                        <ul>
+                                            <li>
+                                                <div class="counter">
+                                                    <div class="days"><h6></h6></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="counter">
+                                                    <div class="hours"><h6></h6></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="counter">
+                                                    <div class="minutes"><h6></h6></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="counter">
+                                                    <div class="seconds"><h6></h6></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Deal Section End -->
+
+    <!-- Product Section Start -->
+    <section class="product-section">
+        <div class="container-fluid-lg">
+            <div class="title title-flex-2">
+                <h2>Our Products</h2>
+                <ul class="nav nav-tabs tab-style-color-2 tab-style-color" id="myTab">
+                    <li class="nav-item">
+                        <button class="nav-link btn active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button">All</button>
+                    </li>
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <button class="nav-link btn" id="{{ category.slug }}-tab" data-bs-toggle="tab" data-bs-target="#{{ category.slug }}" type="button">{{ category.name }}</button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="all" role="tabpanel">
+                    <div class="row g-8">
+                        {% for item in products %}
+                        <div class="col-xxl-2 col-lg-3 col-md-4 col-6 wow fadeInUp">
+                            {% include "web/partials/products.html" %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% for category, products in category_products.items %}
+                <div class="tab-pane fade" id="{{ category.slug }}" role="tabpanel">
+                    <div class="row g-8">
+                        {% for item in products %}
+                        <div class="col-xxl-2 col-lg-3 col-md-4 col-6 wow fadeInUp">
+                            {% include "web/partials/products.html" %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Product Section End -->
+
+    <!-- Banner Section Start -->
+    <section class="banner-section">
+        <div class="container-fluid-lg">
+            <div class="row gy-xl-0 gy-3">
+                {% for item in offers %}
+                <div class="col-xl-6">
+                    <div class="banner-contain-3 hover-effect">
+                        <img src="{{item.image.url}}" class="bg-img img-fluid" alt="">
+                        <div class="banner-detail text-dark p-center-left w-50 position-relative mend-auto">
+                            <div>
+                                <h3 class="mb-sm-3 mb-1 text-light">{{item.title}}</h3>
+                                <h4 class="text-content text-light">{{item.subtitle}}</h4>
+                                <button class="btn theme-bg-color text-white btn-md fw-bold mt-sm-3 mt-1 mend-auto"
+                                    onclick="location.href = '{% url 'web:shop' %}?sub_category={{ item.category.slug }}';">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+    <!-- Product Section Start -->
+    <section class="product-section-4">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Top Selling Items </h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-7_1 arrow-slider img-slider">
+                        {% for item in popular_products %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+
+    <!-- Banner Section Start -->
+    <section class="banner-section">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-contain-3 section-b-space section-t-space hover-effect">
+                        <img src="static/web/images/offer-banner.png" class="img-fluid bg-img" alt="">
+                        <div class="banner-detail p-center text-dark position-relative text-center p-0">
+                            <div>
+                                <h4 class="ls-expanded text-uppercase theme-color">Try Our New</h4>
+                                <h2 class="my-3 text-light">Gear Up for Your Next Expedition</h2>
+                                <h4 class="text-content fw-300 text-light">Best TrackandFiled Quality</h4>
+                                <button class="btn theme-bg-color mt-sm-4 btn-md mx-auto text-white fw-bold"
+                                    onclick="location.href = '{% url 'web:shop' %}';">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+    <!-- Product Section Start -->
+    <section class="product-section-4">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Popular Products
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-7_1 arrow-slider img-slider">
+                        {% for item in popular_products %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section-4">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>New Arrival
+
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-7_1 arrow-slider img-slider">
+                        {% for item in new_products %}
+                        {% include "web/partials/products.html" %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+
+    <!-- Newsletter Section Start -->
+    <section class="newsletter-section-2 section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="newsletter-box hover-effect">
+                        <img src="/static/web/images/subscribe.png" class="img-fluid bg-img" alt="">
+
+                        <div class="row">
+                            <div class="col-xxl-8 col-xl-7">
+                                <div class="newsletter-detail p-center-left text-white">
+                                    <div>
+                                        <h2>Subscribe to the newsletter</h2>
+                                        <h4>Join our subscribers list to get the latest news, updates and special offers
+                                            delivered directly in your inbox.</h4>
+                                        <form class="row g-2">
+                                            <div class="col-sm-10 col-12">
+                                                <div class="newsletter-form">
+                                                    <input type="email" class="form-control" id="email"
+                                                        placeholder="Enter your email">
+                                                    <button type="submit" class="btn bg-white theme-color btn-md fw-500
+                                                        submit-button">Subscribe</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-4 col-xl-5 d-xl-block d-none">
+                                <div class="shape-box">
+                                    <img src="../assets/images/veg-3/shape/basket.png" alt="" class="img-fluid image-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter Section End -->
+
+
+
+
+
+
+    <!-- Deal Box Modal Start -->
+    <div class="modal fade theme-modal deal-modal" id="deal-box" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title w-100" id="deal_today">Deal Today</h5>
+                        <p class="mt-1 text-content">Recommended deals for you.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="deal-offer-box">
+                        <ul class="deal-offer-list">
+                            <li class="list-1">
+                                <div class="deal-offer-contain">
+                                    <a href="javascript:void(0)" class="deal-image">
+                                        <img src="../assets/images/vegetable/product/10.png" class="blur-up lazyload"
+                                            alt="">
+                                    </a>
+
+                                    <a href="javascript:void(0)" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-2">
+                                <div class="deal-offer-contain">
+                                    <a href="javascript:void(0)" class="deal-image">
+                                        <img src="../assets/images/vegetable/product/11.png" class="blur-up lazyload"
+                                            alt="">
+                                    </a>
+
+                                    <a href="javascript:void(0)" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-3">
+                                <div class="deal-offer-contain">
+                                    <a href="javascript:void(0)" class="deal-image">
+                                        <img src="../assets/images/vegetable/product/12.png" class="blur-up lazyload"
+                                            alt="">
+                                    </a>
+
+                                    <a href="javascript:void(0)" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-1">
+                                <div class="deal-offer-contain">
+                                    <a href="javascript:void(0)" class="deal-image">
+                                        <img src="../assets/images/vegetable/product/13.png" class="blur-up lazyload"
+                                            alt="">
+                                    </a>
+
+                                    <a href="javascript:void(0)" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Deal Box Modal End -->
+
+
+
+
+   {% endblock %}
+{% block js %}
+<script>
+    /**=====================
+    Timer 1 js
+    ==========================**/
+    /***** CALCULATE THE TIME REMAINING *****/
+    function getTimeRemaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+
+        /***** CONVERT THE TIME TO A USEABLE FORMAT *****/
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+        /***** OUTPUT THE CLOCK DATA AS A REUSABLE OBJECT *****/
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
+
+    /***** DISPLAY THE CLOCK AND STOP IT WHEN IT REACHES ZERO *****/
+    function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector('.days h6');
+        var hoursSpan = clock.querySelector('.hours h6');
+        var minutesSpan = clock.querySelector('.minutes h6');
+        var secondsSpan = clock.querySelector('.seconds h6');
+
+        function updateClock() {
+            var t = getTimeRemaining(endtime);
+
+            daysSpan.innerHTML = t.days;
+            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+            if (t.total <= 0) {
+                clearInterval(timeinterval);
+            }
+        }
+
+        updateClock(); // run function once at first to avoid delay
+        var timeinterval = setInterval(updateClock, 1000);
+    }
+
+    /***** INITIALIZE ALL CLOCKS *****/
+    document.addEventListener("DOMContentLoaded", function() {
+        var timers = document.querySelectorAll('.timer');
+        timers.forEach(function(timer) {
+            var endtime = timer.getAttribute('data-endtime');
+            initializeClock(timer.id, new Date(endtime));
+        });
+    });
+</script>
+{% endblock js %}

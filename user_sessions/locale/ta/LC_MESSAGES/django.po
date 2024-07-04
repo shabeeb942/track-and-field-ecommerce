@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <anfaspv.info@gmail.com>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-12 13:45+0530\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <anfaspv.info@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: user_sessions/admin.py:12
+msgid "Is Valid"
+msgstr ""
+
+#: user_sessions/admin.py:16
+msgid "Active"
+msgstr ""
+
+#: user_sessions/admin.py:16
+msgid "Expired"
+msgstr ""
+
+#: user_sessions/admin.py:26
+msgid "Owner"
+msgstr ""
+
+#: user_sessions/admin.py:30
+msgid "Self"
+msgstr ""
+
+#: user_sessions/models.py:37
+msgid "session key"
+msgstr ""
+
+#: user_sessions/models.py:38
+msgid "session data"
+msgstr ""
+
+#: user_sessions/models.py:39
+msgid "expiry date"
+msgstr ""
+
+#: user_sessions/models.py:43
+msgid "session"
+msgstr ""
+
+#: user_sessions/models.py:44
+msgid "sessions"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:5
+msgid "<em>unknown on unknown</em>"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:6
+msgid "<em>unknown</em>"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:8
+msgid "Active Sessions"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:13
+msgid "Location"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:14
+msgid "Device"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:15
+msgid "Last Activity"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:24
+#, python-format
+msgid "%(time)s ago (this session)"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:26
+#, python-format
+msgid "%(time)s ago"
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:36
+msgid ""
+"You can also end all other sessions but the current.\n"
+"        This will log you out on all other devices."
+msgstr ""
+
+#: user_sessions/templates/user_sessions/session_list.html:38
+msgid "End All Other Sessions"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:12
+msgid "Edge"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:13
+msgid "Opera"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:14
+msgid "Chrome"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:15
+msgid "Safari"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:16
+msgid "Firefox"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:17
+msgid "Internet Explorer"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:20
+msgid "Windows Mobile"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:21
+msgid "Android"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:22
+msgid "Linux"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:23
+msgid "iPhone"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:24
+msgid "iPad"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:25
+msgid "OS X Mavericks"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:26
+msgid "OS X Yosemite"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:27
+msgid "OS X El Capitan"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:28
+msgid "macOS Sierra"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:29
+msgid "macOS High Sierra"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:30
+msgid "macOS Mojave"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:31
+msgid "macOS Catalina"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:32
+msgid "macOS"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:33
+msgid "Windows XP"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:34
+msgid "Windows Vista"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:35
+msgid "Windows 7"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:36
+msgid "Windows 8"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:37
+msgid "Windows 8.1"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:38
+msgid "Windows 10"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:39
+msgid "Windows"
+msgstr ""
+
+#: user_sessions/templatetags/user_sessions.py:70
+#, python-format
+msgid "%(browser)s on %(device)s"
+msgstr ""

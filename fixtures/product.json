@@ -1,0 +1,451 @@
+[
+    {
+        "model": "admin_interface.theme",
+        "pk": 1,
+        "fields": {
+            "name": "Django",
+            "active": true,
+            "title": "Django administration",
+            "title_color": "#F5DD5D",
+            "title_visible": true,
+            "logo": "",
+            "logo_color": "#FFFFFF",
+            "logo_max_width": 400,
+            "logo_max_height": 100,
+            "logo_visible": true,
+            "favicon": "",
+            "env_name": "",
+            "env_color": "#E74C3C",
+            "env_visible_in_header": true,
+            "env_visible_in_favicon": true,
+            "language_chooser_active": true,
+            "language_chooser_control": "default-select",
+            "language_chooser_display": "code",
+            "css_header_background_color": "#0C4B33",
+            "css_header_text_color": "#44B78B",
+            "css_header_link_color": "#FFFFFF",
+            "css_header_link_hover_color": "#C9F0DD",
+            "css_module_background_color": "#44B78B",
+            "css_module_background_selected_color": "#FFFFCC",
+            "css_module_text_color": "#FFFFFF",
+            "css_module_link_color": "#FFFFFF",
+            "css_module_link_selected_color": "#FFFFFF",
+            "css_module_link_hover_color": "#C9F0DD",
+            "css_module_rounded_corners": true,
+            "css_generic_link_color": "#0C3C26",
+            "css_generic_link_hover_color": "#156641",
+            "css_generic_link_active_color": "#29B864",
+            "css_save_button_background_color": "#0C4B33",
+            "css_save_button_background_hover_color": "#0C3C26",
+            "css_save_button_text_color": "#FFFFFF",
+            "css_delete_button_background_color": "#BA2121",
+            "css_delete_button_background_hover_color": "#A41515",
+            "css_delete_button_text_color": "#FFFFFF",
+            "related_modal_active": true,
+            "related_modal_background_color": "#000000",
+            "related_modal_background_opacity": "0.3",
+            "related_modal_rounded_corners": true,
+            "related_modal_close_button_visible": true,
+            "list_filter_highlight": true,
+            "list_filter_dropdown": true,
+            "list_filter_sticky": true,
+            "list_filter_removal_links": false,
+            "foldable_apps": true,
+            "show_fieldsets_as_tabs": false,
+            "show_inlines_as_tabs": false,
+            "collapsible_stacked_inlines": false,
+            "collapsible_stacked_inlines_collapsed": true,
+            "collapsible_tabular_inlines": false,
+            "collapsible_tabular_inlines_collapsed": true,
+            "recent_actions_visible": true,
+            "form_submit_sticky": false,
+            "form_pagination_sticky": false
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "3hp525681zdvty1onnvfyb64wxvqsgr3",
+        "fields": {
+            "session_data": ".eJxVjDsOgzAQRO-yNbJsgz9Qps8Z0LJeBycRJGCKCHH3gERDM8W8N7MC4ZShWcEe8V1wyCn_oNEFfKZEDA14I4WUsG0FtLjkvl1mntoUdqTg0nVILx4OEJ44PEZB45Cn1IlDESedxX0M_L6d7uWgx7nf11QZ5RAjm1hH7UPptcKobWQta8UkPQWrHXn0LEkbyZWpdMeWTOlcLGH7AyJaRVk:1s8iYE:Yt4BwHznTZ_pSMeSD3VbzmqiYjvm2j5Frawgb7a2WAo",
+            "expire_date": "2024-06-02T15:34:18.601Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "yp535y9hcf2l9cpsrv6ycqofa9k96l1u",
+        "fields": {
+            "session_data": "eyJjYXJ0Ijp7fX0:1s8iOQ:2Li3Wf8tojMz26LMNpEjADkNNdjbx15cbwqrJ0cWgQc",
+            "expire_date": "2024-06-02T15:24:10.604Z"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 1,
+        "fields": {
+            "created": "2024-05-19T11:20:51.902Z",
+            "updated": "2024-05-19T11:20:51.902Z",
+            "creator": 1,
+            "is_active": true,
+            "image": "category/foot.jpeg",
+            "name": "football",
+            "slug": "football"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 2,
+        "fields": {
+            "created": "2024-05-19T11:33:02.982Z",
+            "updated": "2024-05-19T11:33:02.982Z",
+            "creator": null,
+            "is_active": true,
+            "image": "category/bat.jpg",
+            "name": "Cricket",
+            "slug": "cricket"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 3,
+        "fields": {
+            "created": "2024-05-19T11:34:58.608Z",
+            "updated": "2024-05-19T11:34:58.608Z",
+            "creator": null,
+            "is_active": true,
+            "image": "category/volly.jpg",
+            "name": "Volley Ball",
+            "slug": "volley-ball"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 4,
+        "fields": {
+            "created": "2024-05-19T11:38:13.429Z",
+            "updated": "2024-05-19T11:38:13.429Z",
+            "creator": null,
+            "is_active": true,
+            "image": "category/boxing.jpg",
+            "name": "Boxing",
+            "slug": "boxing"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 5,
+        "fields": {
+            "created": "2024-05-19T15:38:32.409Z",
+            "updated": "2024-05-19T15:38:32.409Z",
+            "creator": null,
+            "is_active": true,
+            "image": "category/hok.jpg",
+            "name": "Hockey",
+            "slug": "hockey"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 1,
+        "fields": {
+            "created": "2024-05-19T11:21:25.443Z",
+            "updated": "2024-05-19T11:21:25.443Z",
+            "creator": 1,
+            "is_active": true,
+            "category": 1,
+            "name": "football",
+            "slug": "football"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 2,
+        "fields": {
+            "created": "2024-05-19T11:39:49.052Z",
+            "updated": "2024-05-19T11:39:49.052Z",
+            "creator": null,
+            "is_active": true,
+            "category": 4,
+            "name": "Boxing bag",
+            "slug": "boxing-bag"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 3,
+        "fields": {
+            "created": "2024-05-19T11:44:39.484Z",
+            "updated": "2024-05-19T11:44:39.484Z",
+            "creator": null,
+            "is_active": true,
+            "category": 2,
+            "name": "Cricket bat",
+            "slug": "cricket-bat"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 4,
+        "fields": {
+            "created": "2024-05-19T11:49:20.768Z",
+            "updated": "2024-05-19T11:49:20.768Z",
+            "creator": null,
+            "is_active": true,
+            "category": 1,
+            "name": "football gloves",
+            "slug": "football-gloves"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 5,
+        "fields": {
+            "created": "2024-05-19T11:55:28.380Z",
+            "updated": "2024-05-19T11:55:28.380Z",
+            "creator": null,
+            "is_active": true,
+            "category": 1,
+            "name": "Football shocks",
+            "slug": "football-shocks"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 6,
+        "fields": {
+            "created": "2024-05-19T11:59:33.544Z",
+            "updated": "2024-05-19T11:59:33.544Z",
+            "creator": null,
+            "is_active": true,
+            "category": 3,
+            "name": "Volley ball",
+            "slug": "volley-ball"
+        }
+    },
+    {
+        "model": "product.subcategory",
+        "pk": 7,
+        "fields": {
+            "created": "2024-05-19T15:39:01.813Z",
+            "updated": "2024-05-19T15:39:01.813Z",
+            "creator": null,
+            "is_active": true,
+            "category": 5,
+            "name": "Hockey stick",
+            "slug": "hockey-stick"
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 1,
+        "fields": {
+            "creator": 1,
+            "subcategory": 1,
+            "name": "Vector X Orion TPU Machine Stitched Football | Sports | Match | Training | Practice| Professional So",
+            "slug": "football",
+            "image": "product/71ZL6Df2iAL._SX679_.jpg",
+            "description": "<h1 class=\"a-size-base-plus a-text-bold\">About this item</h1>\r\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Material - PU</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">It has winding bladder for shape retention and also for training level playing</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Soft Cushion Cover</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Weight : 420-425gm, Diameter : 23cm</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Bounce and speed depends on Ball Pressure</span></li>\r\n</ul>",
+            "created": "2024-05-19T11:23:31.901Z",
+            "updated": "2024-05-19T11:29:00.243Z",
+            "is_active": true,
+            "is_top_selling": true,
+            "is_popular": true,
+            "is_new_arrival": false
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 2,
+        "fields": {
+            "creator": null,
+            "subcategory": 2,
+            "name": "Amazon Brand - Symactive High Performance Heavy Duty 4 Feet Unfilled Punching Bag with Rust Proof St",
+            "slug": "amazon-brand-symactive-high-performance-heavy-duty-4-feet-unfilled-punching-bag-with-rust-proof-st",
+            "image": "product/Boxing_bag.jpg",
+            "description": "<h1 class=\"a-size-base-plus a-text-bold\">About this item</h1>\r\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Material: Quality SRF used</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Extreme durability - Bag is double stitched, reinforced with heavy duty d-shackles</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">You can fill up with what ever you desire,(plastic bags, old clothes, cotton or Etc.)</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Free swivel hanging chain - with punch bag to get you started without delay</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">In-Box Contents: 1 X 4 Feet Unfilled Punching Bag, 1 X Hanging Chain</span></li>\r\n</ul>",
+            "created": "2024-05-19T11:41:53.029Z",
+            "updated": "2024-05-19T11:42:34.391Z",
+            "is_active": true,
+            "is_top_selling": true,
+            "is_popular": true,
+            "is_new_arrival": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 3,
+        "fields": {
+            "creator": null,
+            "subcategory": 3,
+            "name": "TOSKA Bat Popular Willow Wooden Cricket Bat Full Size MRFvk Genius-Cricket Bat for Tennis Ball/Rubbe",
+            "slug": "toska-bat-popular-willow-wooden-cricket-bat-full-size-mrfvk-genius-cricket-bat-for-tennis-ballrubbe",
+            "image": "product/bats.jpg",
+            "description": "<h1 class=\"a-size-base-plus a-text-bold\">About this item</h1>\r\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Material: Popular Willow Cricket Bat Meant For Playing By 11 - 18+ Years and Above Adult Men &amp; Women</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Playing Level: Beginner, Training, Advanced</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Lightweight Design And Full Size All Age Group Play This Bat.</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Bat Grade: Grade A++, Suitable for soft ball Cricket you can use ( Tennis Ball, Leather Ball, wind Ball &amp; cosco ball, Rubber Ball)</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">TOSKA Bat Popular Willow Wooden Cricket Bat Full Size MRFvk Genius-Cricket Bat for Tennis Ball/Rubber Ball/Plastic Ball (Men Women)(Red Grip)</span></li>\r\n</ul>",
+            "created": "2024-05-19T11:46:08.814Z",
+            "updated": "2024-05-19T11:46:08.814Z",
+            "is_active": true,
+            "is_top_selling": true,
+            "is_popular": true,
+            "is_new_arrival": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 4,
+        "fields": {
+            "creator": null,
+            "subcategory": 4,
+            "name": "Vector X Gripflex Goalkeeping Gloves",
+            "slug": "vector-x-gripflex-goalkeeping-gloves",
+            "image": "product/cloves.jpg",
+            "description": "<h1 class=\"a-size-base-plus a-text-bold\">About this item</h1>\r\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Adjustable strap for secure fit</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Extra soft padding for superior grip</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Ideal for men and women</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Sport Type: Football</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Air-tech design for greater breathability</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">In-Box Contents: 1 Pair of Goalkeeping Gloves</span></li>\r\n</ul>",
+            "created": "2024-05-19T11:50:35.715Z",
+            "updated": "2024-05-19T11:50:35.715Z",
+            "is_active": true,
+            "is_top_selling": false,
+            "is_popular": false,
+            "is_new_arrival": false
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 5,
+        "fields": {
+            "creator": null,
+            "subcategory": 5,
+            "name": "Nivia Classic Football Stockings for Men & Women, Knee Length Stockings, Football Socks, Soccer Sock",
+            "slug": "nivia-classic-football-stockings-for-men-women-knee-length-stockings-football-socks-soccer-sock",
+            "image": "product/shocks.jpg",
+            "description": "<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">SUPERIOR GRIP: With our specialized Achilles elastane, constant shin pad adjustments are a thing of the past. Play with confidence, knowing your gear will stay in place.</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">COMFORTABLE FIT: Designed with arch support for a secure compression fit, our stockings ensure your shin pads stay firmly in place, reducing the risk of twists and injuries.</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">PREMIUM BAMBOO FIBER: Ditch the cotton and polyester. Our stockings are crafted with skin-friendly bamboo fiber, renowned for its anti-odour properties. Say goodbye to unpleasant odours even after leaving them in your kit bag.</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">ADVANCED CUSHIONING SYSTEM: Our stockings feature anatomically designed cushioning, targeting high-stress zones to diminish injury risks. This cushioning also provides relief to the calf, thigh, and Achilles regions, ensuring even pressure distribution and enhanced foot comfort.</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">PERFECT SIZE: The Free size range of the Football socks fit UK 7 - UK 11 (25 cm to 28 cm)</span></li>\r\n</ul>",
+            "created": "2024-05-19T11:57:24.466Z",
+            "updated": "2024-05-19T11:58:02.577Z",
+            "is_active": true,
+            "is_top_selling": true,
+            "is_popular": true,
+            "is_new_arrival": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 6,
+        "fields": {
+            "creator": null,
+            "subcategory": 6,
+            "name": "SUPERIOR GRIP: With our specialized Achilles elastane, constant shin pad adjustments are a thing of",
+            "slug": "superior-grip-with-our-specialized-achilles-elastane-constant-shin-pad-adjustments-are-a-thing-of",
+            "image": "product/volley_ball_2.jpg",
+            "description": "<h1 class=\"a-size-base-plus a-text-bold\">About this item</h1>\r\n<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Suitable For: All Conditions | Ideal For: Training/Match</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Material : PU | Core/Bladder Material : Butyl | Construction Type: Machine Stitched | Number of Panel : 18| Waterproof:</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Indoor- All Surfaces</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Outdoor- Soft &amp; Dry Surfaces</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Training Ball</span></li>\r\n</ul>",
+            "created": "2024-05-19T12:00:30.612Z",
+            "updated": "2024-05-19T12:01:44.389Z",
+            "is_active": true,
+            "is_top_selling": true,
+            "is_popular": true,
+            "is_new_arrival": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 7,
+        "fields": {
+            "creator": null,
+            "subcategory": 7,
+            "name": "Liffo� LX-1001 Solid Wooden Hockey Sticks for Men and Women Practice and Beginner Level",
+            "slug": "liffo-lx-1001-solid-wooden-hockey-sticks-for-men-and-women-practice-and-beginner-level",
+            "image": "product/hok.jpg",
+            "description": "<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Made up with Solid Wood material attractive and durable</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Attractive, durable and high grip to use Ideal for kids, men, women, adult</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">TRUE SATISFACTION SERVICE : Best quality and service is our goal, if you have problem &rdquo; Please Contact With us. We promise to leave you without any worries, please buy with confidence.</span></li>\r\n<li class=\"a-spacing-mini\"><span class=\"a-list-item\">Pack of 1 Hockey Stick</span></li>\r\n</ul>",
+            "created": "2024-05-19T15:45:05.862Z",
+            "updated": "2024-05-19T15:47:11.922Z",
+            "is_active": true,
+            "is_top_selling": true,
+            "is_popular": false,
+            "is_new_arrival": true
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "title": "unit 1",
+            "price": "200.00",
+            "old_price": "400.00"
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 2,
+        "fields": {
+            "product": 2,
+            "title": "unit 2",
+            "price": "500.00",
+            "old_price": "1000.00"
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 3,
+        "fields": {
+            "product": 3,
+            "title": "uint 2",
+            "price": "450.00",
+            "old_price": "850.00"
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 4,
+        "fields": {
+            "product": 4,
+            "title": "unit 3",
+            "price": "490.00",
+            "old_price": "790.00"
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 5,
+        "fields": {
+            "product": 5,
+            "title": "unit 3",
+            "price": "85.00",
+            "old_price": "100.00"
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 6,
+        "fields": {
+            "product": 6,
+            "title": "unit 2",
+            "price": "850.00",
+            "old_price": "500.00"
+        }
+    },
+    {
+        "model": "product.productvariant",
+        "pk": 7,
+        "fields": {
+            "product": 7,
+            "title": "black",
+            "price": "500.00",
+            "old_price": "600.00"
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$pBq17zyYM7J2GPpCTmRZWJ$Q2PU5HYeZBwZxBJgHrs4J7acu7aqZWaazNf7DEjzF1o=",
+            "last_login": "2024-05-19T11:20:11.687Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "admin@gamil.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2024-05-19T11:19:35.532Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

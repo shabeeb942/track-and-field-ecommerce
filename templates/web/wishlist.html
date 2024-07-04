@@ -1,0 +1,83 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- Breadcrumb Section Start -->
+    <section class="breadcrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-contain">
+                        <h2>Wishlist</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="/">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active">Wishlist</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Wishlist Section Start -->
+    <section class="wishlist-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row g-sm-3 g-2">
+         
+                
+                {% for item in wishlist_items %}
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{{item.product.image.url}}" class="img-fluid blur-up lazyload"
+                                        alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <a href="{% url 'web:remove_from_wishlist' item.id %}" class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">{{item.product.name}}</h5>
+                                </a>
+
+                                <h5 class="price"><span class="theme-color">₹ {{item.product.get_product_variant.price}}</span>
+                                    {% if item.product.get_product_variant.old_price %} <del>₹ {{item.product.get_product_variant.old_price}}</del>{% endif %}
+                               </h5>
+
+                                <div class="btn-dropdown-main">
+                                    <p class="m-0">size</p>
+                                    <button class="bt-dropdown" data-bs-toggle="modal" data-bs-target="#ProductModal-{{item.product.slug}}">
+                
+                                       <h6 class="unit m-0">{{item.product.get_product_variant.title}}</h6>
+                                        <i class="bi bi-chevron-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Wishlist Section End -->
+
+{% endblock %}

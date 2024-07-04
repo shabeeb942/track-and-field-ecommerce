@@ -1,0 +1,103 @@
+{% load static %}
+
+<div class="product-box-4">
+    <div class="product-image">
+        <div class="label-flex">
+            <button class="btn p-0 wishlist btn-wishlist notifi-wishlist">
+                {% comment %} <i class="iconly-Heart icli"></i> {% endcomment %}
+            </button>
+        </div>
+
+        <a href="{{item.get_absolute_url}}">
+            <img src="{{item.image.url}}" class="img-fluid" alt="">
+        </a>
+
+        <ul class="option">
+            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view-{{item.id}}">
+                    <i class="iconly-Show icli"></i>
+                </a>
+            </li>
+            {% comment %} <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                <a href="compare.html">
+                    <i class="iconly-Swap icli"></i>
+                </a>
+            </li> {% endcomment %}
+        </ul>
+    </div>
+
+    <div class="product-detail">
+        <ul class="rating">
+            <li>
+                <i data-feather="star" class="fill"></i>
+            </li>
+            <li>
+                <i data-feather="star" class="fill"></i>
+            </li>
+            <li>
+                <i data-feather="star"></i>
+            </li>
+            <li>
+                <i data-feather="star"></i>
+            </li>
+            <li>
+                <i data-feather="star"></i>
+            </li>
+        </ul>
+        <a href="{{item.get_absolute_url}}">
+            <h5 class="name">{{item.name}}</h5>
+        </a>
+        <h5 class="price theme-color">₹ {{item.get_product_variant.price}}<del>₹ {{item.get_product_variant.old_price}}</del></h5>
+        <div class="price-qty">
+            <div class="counter-number">
+                <div class="counter d-none">
+                    <div class="qty-left-minus" data-type="minus" data-field="">
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                    <input class="form-control input-number qty-input" type="text"
+                        name="quantity" value="0">
+                    <div class="qty-right-plus" data-type="plus" data-field="">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button class="buy-button buy-button-2 btn btn-cart" data-bs-toggle="modal" data-bs-target="#ProductModal-{{item.slug}}">
+                <i class="iconly-Buy icli text-white m-0"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+{% comment %} <div class="product-box wow fadeIn">
+    <div class="product-image">
+        <a href="{{item.get_absolute_url}}">
+            <img src="{{item.image.url}}"
+                class="img-fluid blur-up lazyload" alt="">
+        </a>
+
+    </div>
+    <div class="product-detail">
+        <a href="{{item.get_absolute_url}}">
+            <h6 class="name name-2 h-100">{{item.name}}</h6>
+        </a>
+
+
+
+        <h6 class="sold weight text-content fw-normal">{{item.subcategory}}</h6>
+
+        <div class="counter-box">
+            <h6 class="sold theme-color">₹ {{item.get_product_variant.price}}</h6>
+
+            <div class="addtocart_btn">
+                <button class="add-button addcart-button btn buy-button text-light" data-bs-toggle="modal" data-bs-target="#ProductModal-{{item.slug}}">
+                    <span>Add</span>
+
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+{% include "web/partials/quick-view-modal.html" %}

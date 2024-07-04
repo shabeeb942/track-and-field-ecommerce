@@ -1,0 +1,84 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+ <!-- Breadcrumb Section Start -->
+ <section class="breadcrumb-section pt-0">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain">
+                    <h2>Search</h2>
+                    <nav>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item">
+                                <a href="/">
+                                    <i class="fa-solid fa-house"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active">Search</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Search Bar Section Start -->
+<section class="search-section">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-xxl-6 col-xl-8 mx-auto">
+                <div class="title d-block text-center">
+                    <h2>Search for products</h2>
+                    <span class="title-leaf">
+                        <svg class="icon-width">
+                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                        </svg>
+                    </span>
+                </div>
+                <!-- <form method="GET" action="{% url 'web:shop' %}">
+                    <input type="text" class="form-control" name="search" placeholder="Search for products...">
+                    <button class="btn theme-bg-color text-white m-0" type="submit" id="button-addon1">Search</button>
+                </form> -->
+                <div class="search-box">
+                    <div class="input-group">
+                        <form method="GET" action="{% url 'web:shop' %}">
+                        <input type="text" class="form-control" name="search" placeholder="Search for products..." >
+                    </form>
+                        <button class="btn theme-bg-color text-white m-0" type="button"
+                            id="button-addon1">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Search Bar Section End -->
+
+<!-- Product Section Start -->
+<section class="section-b-space">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-12">
+                <div class="search-product product-wrapper">
+                    {% for item in products %}
+
+                        {% include "web/partials/products.html" %}
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock  %}

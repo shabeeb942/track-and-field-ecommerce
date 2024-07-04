@@ -1,0 +1,128 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TRACK AND FIELD">
+    <meta name="keywords" content="TRACK AND FIELD">
+    <meta name="author" content="TRACK AND FIELD">
+    <link rel="icon" href="{% static 'web/images/favicon/1.png' %}" type="image/x-icon' %}">
+    <title>TRACK AND FIELD | DELIVERING RIGHT VALUE</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="/static/web/fonts.gstatic.com//">
+    <link href="/static/web/fonts.googleapis.com/css24a5d.css?family=Russo+One&amp;display=swap" rel="stylesheet">
+    <link href="/static/web/fonts.googleapis.com/css2ace9.css?family=Pacifico&amp;display=swap" rel="stylesheet">
+    <link href="/static/web/fonts.googleapis.com/css21b5e.css?family=Kaushan+Script&amp;display=swap" rel="stylesheet">
+    <link href="/static/web/fonts.googleapis.com/css23d1e.css?family=Exo+2:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="/static/web/fonts.googleapis.com/css25af9.css?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="{% static 'web/css/vendors/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- wow css -->
+    <link rel="stylesheet" href="{% static 'web/css/animate.min.css' %}">
+
+    <!-- Iconly css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/bulk-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/vendors/animate.css' %}">
+
+    <!-- Template css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'web/css/style.css' %}">
+
+    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'web/css/custom.css' %}">
+    {% block css %}{% endblock  %}
+
+</head>
+
+<body class="">
+
+
+    <!-- Loader Start -->
+    <div class="fullpage-loader" style="display: none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- Loader End -->
+
+
+    {% include "web/partials/header.html" %}
+    {% block content %}{% endblock  %}
+    {% include "web/partials/footer.html" %}
+    {% include "web/partials/others.html" %}
+    {% include "web/partials/modal.html" %}
+
+        <!-- latest jquery-->
+        <script src="{% static 'web/js/jquery-3.6.0.min.js' %}"></script>
+
+        <!-- jquery ui-->
+        <script src="{% static 'web/js/jquery-ui.min.js' %}"></script>
+
+        <!-- Bootstrap js-->
+        <script src="{% static 'web/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'web/js/bootstrap/bootstrap-notify.min.js' %}"></script>
+        <script src="{% static 'web/js/bootstrap/popper.min.js' %}"></script>
+
+        <!-- feather icon js-->
+        <script src="{% static 'web/js/feather/feather.min.js' %}"></script>
+        <script src="{% static 'web/js/feather/feather-icon.js' %}"></script>
+
+        <!-- Lazyload Js -->
+        <script src="{% static 'web/js/lazysizes.min.js' %}"></script>
+
+        <!-- Slick js-->
+        <script src="{% static 'web/js/slick/slick.js' %}"></script>
+        <script src="{% static 'web/js/slick/slick-animation.min.js' %}"></script>
+        <script src="{% static 'web/js/slick/custom_slick.js' %}"></script>
+
+        <!-- Auto Height Js -->
+        <script src="{% static 'web/js/auto-height.js' %}"></script>
+
+        <!-- Timer Js -->
+       {% comment %} <script src="{% static 'web/js/timer1.js' %}"></script> {% endcomment %}
+
+        <!-- Fly Cart Js -->
+        <script src="{% static 'web/js/fly-cart.js' %}"></script>
+
+        <!-- Quantity js -->
+        <script src="{% static 'web/js/quantity-2.js' %}"></script>
+
+        <!-- WOW js -->
+        <script src="{% static 'web/js/wow.min.js' %}"></script>
+        <script src="{% static 'web/js/custom-wow.js' %}"></script>
+
+
+
+        <!-- script js -->
+        <script src="{% static 'web/js/script.js' %}"></script>
+
+        <!-- theme setting js -->
+        <script src="{% static 'web/js/theme-setting.js' %}"></script>
+
+        <script src="{% static 'web/js/index-cart.js' %}"></script>
+        <script src="{% static 'web/js/product-detail.js' %}"></script>
+        {% block js %}{% endblock  %}
+
+
+        <script type="text/javascript">
+            function orderOnWhatsApp(productUrl) {
+                var message = "Hello, I am interested in this product: " + window.location.origin + productUrl;
+                var whatsappUrl = "https://wa.me/+918075029472?text=" + encodeURIComponent(message);
+                window.location.href = whatsappUrl;
+            }
+        </script>
+
+    </body>
+
+</html>

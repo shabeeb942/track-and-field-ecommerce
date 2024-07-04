@@ -1,0 +1,145 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Breadcrumb Section Start -->
+    <section class="breadcrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-contain">
+                        <h2>User Dashboard</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="/">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active">User Dashboard</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- User Dashboard Section Start -->
+    <section class="user-dashboard-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-xxl-3 col-lg-4">
+                    <div class="dashboard-left-sidebar">
+
+                        <div class="profile-box">
+
+                            <div class="profile-contain">
+
+
+                                <div class="profile-name">
+                                    <h3>{{user.username}}</h3>
+                                    <h6 class="text-content">{{user.email}}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a href="#pills-tabContent" class="nav-link active" id="pills-dashboard-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-dashboard" role="tab"><i
+                                        data-feather="home"></i>
+                                    Orders</a>
+                            </li>
+
+
+                            <li class="nav-item" role="presentation">
+                                <form method="post" action="{% url 'auth_logout' %}">
+                                {% csrf_token %}
+                                <button class="nav-link" id="pills-out-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-out" type="submit" role="tab"><i data-feather="log-out"></i>
+                                    Log Out</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xxl-9 col-lg-8">
+                    <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">Show
+                        Menu</button>
+                    <div class="dashboard-right-sidebar">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
+                                <div class="dashboard-order">
+                                    <div class="title">
+                                        <h2>My Orders</h2>
+                                        <span class="title-leaf title-leaf-gray">
+                                            <svg class="icon-width bg-gray">
+                                                <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+
+                                    <div class="order-tab dashboard-bg-box">
+                                        <div class="table-responsive">
+                                            <table class="table order-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Order ID</th>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for item in orders %}
+                                                    <tr>
+                                                        <td class="product-image">#{{item.order_id}}</td>
+                                                        <td>
+                                                            <h6>{{item.created}}</h6>
+                                                        </td>
+
+                                                        <td>
+                                                            <h6>{{item.payable}}</h6>
+                                                        </td>
+                                                        <td>
+                                                           <a href="{{item.get_user_absolute_url}}"> <i class="fa-solid fa-eye"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- User Dashboard Section End -->
+
+    {% endblock  %}
+
+    {% block css %}
+    <style>
+        .bg-overlay.show{
+            opacity: 1;
+        }
+        @media (max-width: 991px){
+            .user-dashboard-section .dashboard-left-sidebar.show {
+            left: 0;
+            z-index: 9999;
+        }
+        }
+
+    </style>
+    {% endblock  %}
