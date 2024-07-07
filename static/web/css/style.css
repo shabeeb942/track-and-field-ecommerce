@@ -27163,7 +27163,7 @@ header.header-gradient .top-nav .navbar-top .rightside-box .right-side-menu .rig
 
 @media(max-width: 767px) {
     .home-contain .home-detail.home-overlay {
-        background-color: rgba(255, 255, 255, .529)
+        /* background-color: rgba(255, 255, 255, .529) */
     }
 }
 
