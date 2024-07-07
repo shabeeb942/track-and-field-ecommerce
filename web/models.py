@@ -36,9 +36,9 @@ class CategoryOffer(BaseModel):
 
 
 class Banner(BaseModel):
-    tag = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
-    subtitle = models.CharField(max_length=100)
+    tag = models.CharField(max_length=100,blank=True,null=True)
+    title = models.CharField(max_length=100,blank=True,null=True)
+    subtitle = models.CharField(max_length=100,blank=True,null=True)
     image = models.ImageField(upload_to="banner")
     sub_category = models.ForeignKey("product.SubCategory", on_delete=models.CASCADE,blank=True,null=True)
 
