@@ -47077,7 +47077,7 @@ body.rtl .theme-product-section .right-box-contain .license-list .accordion-item
     }
 }
 
-/* .header-2 {
+.top-header {
     position: fixed !important;
     left: 0;
     margin: auto;
@@ -47089,4 +47089,4 @@ body.rtl .theme-product-section .right-box-contain .license-list .accordion-item
     animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
     -webkit-box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
     background: #fff;
-} */
+}

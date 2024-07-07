@@ -141,11 +141,13 @@ class ProductDetail(DetailView):
     model = Product
     template_name = "web/product-detail.html"
 
-
-    def get_context_data(self, **kwargs) -> dict[str, Any]:
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["products"] = Product.objects.filter(is_active=True)
-        context["related_products"] = Product.objects.filter(subcategory__slug=self.object.subcategory.slug).exclude(id=self.object.id)
+        context["related_products"] = Product.objects.filter(
+            subcategory__slug=self.object.subcategory.slug,
+            is_active=True
+        ).exclude(id=self.object.id)
         return context
 
 

@@ -12,28 +12,32 @@
                     {% for banner in banners %}
                     <div>
                         <div class="home-contain rounded-0 p-0">
-                            <img src="{{banner.image.url}}"
-                                class="img-fluid bg-img blur-up lazyload" alt="">
+                            <img src="{{ banner.image.url }}"
+                                 class="img-fluid bg-img blur-up lazyload" alt="">
                             <div class="home-detail home-big-space p-center-left home-overlay position-relative">
                                 <div class="container-fluid-lg">
                                     <div>
-                                        <h6 class="ls-expanded theme-color text-uppercase">{{banner.tag}}
-                                        </h6>
-                                        <h1 class="heding-2 text-light">{{banner.title}}</h1>
-                                        <h2 class="content-2 text-light">{{banner.subtitle}}</h2>
-                                        </h5>
-                                        <button
-                                            class="btn theme-bg-color btn-md text-white fw-bold mt-md-4 mt-2 mend-auto"
-                                            onclick="location.href = '{% url 'web:shop' %}?sub_category={{banner.sub_category.slug}}';">Shop Now <i
-                                                class="fa-solid fa-arrow-right icon"></i></button>
+                                        {% if banner.tag %}
+                                        <h6 class="ls-expanded theme-color text-uppercase">{{ banner.tag }}</h6>
+                                        {% endif %}
+                                        {% if banner.title %}
+                                            <h1 class="heading-2 text-light">{{ banner.title }}</h1>
+                                        {% endif %}
+                                        {% if banner.subtitle %}
+                                            <h2 class="content-2 text-light">{{ banner.subtitle }}</h2>
+                                        {% endif %}
+                                        <button class="btn theme-bg-color btn-md text-white fw-bold mt-md-4 mt-2 mend-auto"
+                                                onclick="location.href = '{% url 'web:shop' %}?sub_category={{ banner.sub_category.slug }}';">
+                                            Shop Now <i class="fa-solid fa-arrow-right icon"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
-
                 </div>
+
             </div>
         </div>
     </div>
