@@ -68,7 +68,7 @@ class Index(TemplateView):
         context["category_offers"] = CategoryOffer.objects.filter(is_active=True).order_by("?")
         # context["popular_products_category"] = CategoryOffer.objects.filter(is_popular=True).order_by("?").last()
         # context["new_products_category"] = CategoryOffer.objects.filter(is_new_arrival=True).order_by("?").last()
-
+        context["is_index"] = True
         return context
 
 class Search(TemplateView):

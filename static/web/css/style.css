@@ -27197,7 +27197,7 @@ header.header-gradient .top-nav .navbar-top .rightside-box .right-side-menu .rig
 
 .home-contain .home-detail h1 {
     font-size: calc(16px + 26*(100vw - 320px)/1600);
-    width: 80%;
+    width: 100%;
     line-height: 1.4;
     margin-bottom: calc(3px + 7*(100vw - 320px)/1600)
 }
@@ -47089,4 +47089,7 @@ body.rtl .theme-product-section .right-box-contain .license-list .accordion-item
     animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
     -webkit-box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
     background: #fff;
+}
+.mobile-dashboard{
+    color: #fff !important;
 }

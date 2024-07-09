@@ -263,7 +263,7 @@
 <!-- mobile fix menu start -->
 <div class="mobile-menu d-md-none d-block mobile-cart">
     <ul>
-        <li class="active">
+        <li class="{% if is_index %} active {% endif %}">
             <a href="/">
                 <i class="iconly-Home icli"></i>
                 <span>Home</span>
@@ -300,7 +300,7 @@
         {% if user.is_superuser %}
         <li>
             <a href="{% url 'core:home' %}">
-                <i class="bi bi-grid-3x3-gap-fill"></i>
+                <i class="bi bi-grid-3x3-gap-fill mobile-dashboard"></i>
                 <span>Dashoard</span>
             </a>
         </li>
