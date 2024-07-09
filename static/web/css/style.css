@@ -32591,7 +32591,7 @@ body.rtl .menu-label {
 .product-box-4 {
     border: 1px solid #ececec;
     border-radius: 8px;
-    padding: 5px;
+    padding: 0px 10px 20px 8px;
     position: relative;
     text-align: center
 }
