@@ -75,12 +75,22 @@
 
                             <div class="option-list">
                                 <ul>
+                                    {% if request.user.is_authenticated %}
                                     <li class="onhover-dropdown">
                                         <a href="{% url 'web:user_order' %}" class="header-icon search-box search-icon">
                                             <i class="iconly-Profile icli"></i>
                                         </a>
 
                                     </li>
+                                    {% else %}
+                                    <li class="onhover-dropdown">
+                                        <a href="{% url 'auth_login' %}" class="header-icon search-box search-icon">
+                                            <i class="iconly-Profile icli"></i>
+                                        </a>
+
+                                    </li>
+                                    {% endif %}
+                                  
 
                                     <li class="onhover-dropdown">
                                         <a href="{% url 'web:user_order' %}"

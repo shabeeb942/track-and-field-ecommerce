@@ -60,17 +60,21 @@
                     </div>
                     <ul class="footer-list footer-contact mb-sm-0 mb-3">
                         <li>
-                            <a href="#" class="footer-contain-2">
-                                <i class="fas fa-angle-right"></i>About Us</a>
+                            <a href="{% url 'web:privacy-policy' %}" class="text-content">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="{% url 'web:contact' %}" class="footer-contain-2">
-                                <i class="fas fa-angle-right"></i>Contact Us</a>
+                            <a href="{% url 'web:refund-policy' %}" class="text-content">Refund Policy</a>
                         </li>
                         <li>
-                            <a href="#" class="footer-contain-2">
-                                <i class="fas fa-angle-right"></i>Terms & Coditions</a>
+                            <a href="{% url 'web:shipping-policy' %}" class="text-content">Shipping Policy</a>
                         </li>
+                        <li>
+                            <a href="{% url 'web:contact-policy' %}" class="text-content">Contact Policy</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'web:terms-conditions' %}" class="text-content">Terms and Conditions</a>
+                        </li>
+
 
 
                     </ul>
@@ -81,7 +85,10 @@
                         <h4>Useful Link</h4>
                     </div>
                     <ul class="footer-list footer-contact mb-sm-0 mb-3">
-
+                        <li>
+                            <a href="{% url 'web:contact' %}" class="footer-contain-2">
+                                <i class="fas fa-angle-right"></i>Contact Us</a>
+                        </li>
                         <li>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'web:user_order' %}" class="footer-contain-2">
