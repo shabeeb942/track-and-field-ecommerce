@@ -1258,7 +1258,7 @@ $('.category-slider-1').slick({
 $('.slider-7_1').slick({
     arrows: true,
     infinite: true,
-    slidesToShow: 7,
+    slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [{
         breakpoint: 1660,
