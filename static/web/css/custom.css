@@ -448,3 +448,9 @@ header .navbar.navbar-expand-xl .navbar-nav .home-nav::before {
 .brand-img img{
     width: 100px !important;
     height: 100px !important;}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
