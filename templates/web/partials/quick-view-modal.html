@@ -48,9 +48,12 @@
 
 
                                 <div class="modal-button">
-                                    <button onclick="location.href = 'javascript:void(0)';"
+                                    {% comment %} <button onclick="location.href = 'javascript:void(0)';"
                                         class="btn btn-md add-cart-button icon"  data-bs-toggle="modal" data-bs-target="#ProductModal-{{item.slug}}">Add
-                                        To Cart</button>
+                                        To Cart</button> {% endcomment %}
+                                        <button onclick="orderOnWhatsApp('{{ item.get_absolute_url }}')" class="buy-button buy-button-2 btn bg-success wp-order">
+                                            <i class="bi bi-whatsapp text-white m-0"></i>
+                                        </button>
                                     <button onclick="location.href = '{{item.get_absolute_url}}';"
                                         class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
                                         View More Details</button>

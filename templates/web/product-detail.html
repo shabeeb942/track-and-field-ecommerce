@@ -118,7 +118,7 @@
 
 
 
-                                <div class="note-box product-package">
+                                {% comment %} <div class="note-box product-package">
                                     <div class="cart_qty qty-box product-qty">
                                         <div class="input-group">
                                             <button type="button" class="qty-left-minus" data-type="minus"
@@ -135,7 +135,7 @@
 
                                     <button id="cart-add-btn"
                                         class="btn btn-md bg-dark cart-button text-white w-100" data-product-id="{{product.get_sizes.first.id}}">Add To Cart</button>
-                                </div>
+                                </div> {% endcomment %}
 
                                 <div class="buy-box">
                                     <button class="wishlist-btn" class="notifi-wishlist" data-product="{{ product.id }}">

@@ -43,7 +43,7 @@
     </div>
 </section>
  <!-- Category Section Start -->
- <section class="category-section-3 mt-3">
+ {% comment %} <section class="category-section-3 mt-3">
     <div class="container-fluid-lg">
         <div class="title">
             <h2>Shop By Categories</h2>
@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-</section
+</section {% endcomment %}
 
     <!-- Value Section Start -->
     <section>
@@ -166,7 +166,7 @@
                                     <a href="{{ deal.product.get_absolute_url }}" class="text-title">
                                         <h5>{{ deal.product.name }}</h5>
                                     </a>
-                                    <h5 class="price">${{ deal.product.get_min_price }} <span>${{ deal.product.get_old_price }}</span></h5>
+                                    <h5 class="price">₹{{ deal.product.get_min_price }} <span>₹{{ deal.product.get_old_price }}</span></h5>
                                     <div class="progress custom-progressbar">
                                         <div class="progress-bar" style="width: 50%" role="progressbar"></div>
                                     </div>
@@ -217,13 +217,13 @@
         <div class="container-fluid-lg">
             <div class="title title-flex-2">
                 <h2>Our Products</h2>
-                <ul class="nav nav-tabs tab-style-color-2 tab-style-color" id="myTab">
+                {% comment %} <ul class="nav nav-tabs tab-style-color-2 tab-style-color" id="myTab">
                     {% for category in categories %}
                     <li class="nav-item">
                         <button class="nav-link btn{% if forloop.first %} active{% endif %}" id="{{ category.slug }}-tab" data-bs-toggle="tab" data-bs-target="#{{ category.slug }}" type="button">{{ category.name }}</button>
                     </li>
                     {% endfor %}
-                </ul>
+                </ul> {% endcomment %}
             </div>
     
             <div class="tab-content" id="myTabContent">
@@ -426,7 +426,7 @@
 
                                     <a href="javascript:void(0)" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                        <h6>₹52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>
@@ -440,7 +440,7 @@
 
                                     <a href="javascript:void(0)" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                        <h6>₹52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>
@@ -454,7 +454,7 @@
 
                                     <a href="javascript:void(0)" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                        <h6>₹52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>
@@ -468,7 +468,7 @@
 
                                     <a href="javascript:void(0)" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                        <h6>₹52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>

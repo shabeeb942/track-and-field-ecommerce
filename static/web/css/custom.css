@@ -418,6 +418,9 @@ section,
     .header-category {
         background: #fff;
     }
+    .product-detail del{
+        display: none !important;
+    }
 }
 
 header .navbar.navbar-expand-xl .navbar-nav .home-nav::before {
@@ -454,3 +457,5 @@ header .navbar.navbar-expand-xl .navbar-nav .home-nav::before {
     align-items: center;
     justify-content: center;
 }
+
+
