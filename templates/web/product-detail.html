@@ -143,11 +143,10 @@
                                         <span>Add To Wishlist</span>
                                     </button>
                                 </div>
-                                <button onclick="orderOnWhatsApp('{{ product.get_absolute_url }}')" class="wp-btn btn btn-md bg-dark cart-button text-white w-100">Order On Whatsapp</button>
-
-
-
-
+                                <button onclick="orderOnWhatsApPproduct('{{ product.get_absolute_url }}')" class="wp-btn btn btn-md bg-dark cart-button text-white w-100">
+                                    Order On WhatsApp
+                                </button>
+                                
                                 <!-- <div class="payment-option">
                                     <div class="product-title">
                                         <h4>Guaranteed Safe Checkout</h4>
@@ -611,5 +610,31 @@
 
     {% block js %}
     <script src="{% static 'web/js/product-detail.js' %}"></script>
+<script>
+    function orderOnWhatsApPproduct(productUrl) {
+        // Get the selected size element
+        const selectedSize = document.querySelector('input[name="size"]:checked');
+        if (!selectedSize) {
+            alert("Please select a size before ordering.");
+            return;
+        }
+    
+        // Extract size and sale price
+        const sizeTitle = selectedSize.nextElementSibling.querySelector('span').innerText;
+        const salePrice = selectedSize.getAttribute('data-sale-price');
+    
+        // Construct the WhatsApp message
+        const message = `Hello, I am interested in ordering the following product:
+    - Product URL: ${window.location.origin + productUrl}
+    - Selected Size: ${sizeTitle}
+    - Price: ₹${salePrice}`;
 
+    // WhatsApp URL (replace the number with your business WhatsApp number)
+    const whatsappURL = `https://wa.me/+919847549482?text=${encodeURIComponent(message)}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappURL, '_blank');
+}
+
+</script>
     {% endblock  %}
